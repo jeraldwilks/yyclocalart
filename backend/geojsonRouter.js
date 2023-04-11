@@ -9,15 +9,9 @@ var calgaryURL =
 
 export const geojsonRouter = express.Router();
 
-geojsonRouter.get("/", async (req, res) => {});
-
-var handleGeoJSON = function (data) {
-  // data is the JSON parsed into a JS object
-  console.log(data);
-};
-
-fetch(calgaryURL)
-  .then(function (response) {
+geojsonRouter.get("/", async (req, res) => {
+  let geoJSON = await fetch(calgaryURL).then(function (response) {
     return response.json();
-  })
-  .then(handleGeoJSON);
+  });
+  res.send(geoJSON);
+});
