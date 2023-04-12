@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import { geojsonRouter } from "./geojsonRouter.js";
 
 dotenv.config();
 
@@ -8,3 +9,5 @@ const app = express();
 app.use(express.json());
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 app.use(express.static("public"));
+
+app.use("/geojson", geojsonRouter);
