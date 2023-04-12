@@ -69,9 +69,11 @@ const Map = () => {
     });
     map.current.on("click", "art", (e) => {
       // Copy coordinates array.
-      // console.log(e);
+      // console.log(e.features[0]);
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.short_desc;
+      const title = e.features[0].properties.title;
+      const address = e.features[0].properties.address;
       // Ensure that if the map is zoomed out such that multiple
       // copies of the feature are visible, the popup appears
       // over the copy being pointed to.
@@ -81,7 +83,15 @@ const Map = () => {
 
       new mapboxgl.Popup()
         .setLngLat(coordinates)
-        .setHTML(description)
+        .setHTML(
+          "<h2>" +
+            title +
+            "</h2><h3>" +
+            address +
+            "</h3><p>" +
+            description +
+            "</p>"
+        )
         .addTo(map.current);
     });
 
