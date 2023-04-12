@@ -41,7 +41,7 @@ const Map = () => {
     //   })
     // );
     map.current.on("load", () => {
-      map.current.addSource("art-data", {
+      map.current.addSource("art", {
         type: "geojson",
         data: "/api/geojson",
       });
@@ -54,10 +54,11 @@ const Map = () => {
       map.current.addLayer({
         id: "art",
         type: "symbol",
-        source: "art-data",
+        source: "art",
         layout: {
           "icon-image": "icon",
-          "icon-size": 0.1,
+          "icon-size": 0.075,
+          "icon-allow-overlap": true,
           // get the title name from the source's "title" property
           "text-field": ["get", "title"],
           "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
@@ -65,6 +66,33 @@ const Map = () => {
           "text-anchor": "top",
         },
       });
+    });
+    map.current.on("click", "art", (e) => {
+      // Copy coordinates array.
+      // console.log(e);
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.short_desc;
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map.current);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.current.on("mouseenter", "places", () => {
+      map.current.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.current.on("mouseleave", "places", () => {
+      map.current.getCanvas().style.cursor = "";
     });
   });
   return (
