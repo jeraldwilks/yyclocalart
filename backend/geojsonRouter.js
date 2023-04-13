@@ -3,7 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 
 dotenv.config();
-var calgaryURL =
+let calgaryURL =
   "https://data.calgary.ca/resource/2kp2-hsy7.geojson?$$app_token=" +
   process.env.CALGARY_TOKEN;
 
