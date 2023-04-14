@@ -10,4 +10,4 @@ app.use(express.json());
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 app.use(express.static("public"));
 
-app.use("/geojson", geojsonRouter);
+app.use("/api/geojson", geojsonRouter);
