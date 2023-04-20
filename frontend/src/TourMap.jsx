@@ -9,7 +9,6 @@ mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 const TourMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  let prevArray = useRef(null);
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
@@ -86,7 +85,12 @@ const TourMap = () => {
       }
       // console.log(e);
       // console.log(coordinates);
-      setTourLocations((prevArray) => [...prevArray, e.features[0]]);
+      console.log(e.features[0]);
+      let newArray = [...tourLocations, e.features[0]];
+      console.log("Maggie Madness:");
+      console.log(newArray);
+      setTourLocations(newArray);
+      // setTourLocations((prevArray) => [...prevArray, e.features[0]]);
       console.log("tourLocations:");
       console.log(tourLocations);
 
@@ -113,7 +117,7 @@ const TourMap = () => {
     map.current.on("mouseleave", "art", () => {
       map.current.getCanvas().style.cursor = "";
     });
-  });
+  }, [tourLocations]);
 
   return (
     <div>
