@@ -14,8 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-const pages = ["Home", "About"];
-const routes = ["/", "/about"];
+const pages = ["About"];
+const routes = ["/about"];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -41,7 +41,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -57,7 +57,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            YYC Local Art
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
