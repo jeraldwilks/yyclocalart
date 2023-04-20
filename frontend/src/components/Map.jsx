@@ -12,6 +12,8 @@ const Map = () => {
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
+  const [tourLocations, setTourLocations] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -71,28 +73,20 @@ const Map = () => {
       // Copy coordinates array.
       // console.log(e.features[0]);
       const coordinates = e.features[0].geometry.coordinates.slice();
-      const description = e.features[0].properties.short_desc;
-      const title = e.features[0].properties.title;
-      const address = e.features[0].properties.address;
+      // const description = e.features[0].properties.short_desc;
+      // const title = e.features[0].properties.title;
+      // const address = e.features[0].properties.address;
       // Ensure that if the map is zoomed out such that multiple
       // copies of the feature are visible, the popup appears
       // over the copy being pointed to.
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-
-      new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(
-          "<h2>" +
-            title +
-            "</h2><h3>" +
-            address +
-            "</h3><p>" +
-            description +
-            "</p>"
-        )
-        .addTo(map.current);
+      // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //   coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      // }
+      setSelectedLocation(e.features[0]);
+      //   new mapboxgl.Popup()
+      //     .setLngLat(coordinates)
+      //     .setHTML("<h2>" + title + "</h2>")
+      //     .addTo(map.current);
     });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
@@ -105,9 +99,46 @@ const Map = () => {
       map.current.getCanvas().style.cursor = "";
     });
   });
+
+  const addToTour = () => {
+    setTourLocations((prevArray) => [...prevArray, selectedLocation]);
+  };
+
+  const createTour = () => {};
+
   return (
     <div>
       <div ref={mapContainer} className="map-container" />
+      <>
+        <h1>Selected Location:</h1>
+        {selectedLocation == null && <p>No location selected</p>}
+        {selectedLocation != null && (
+          <>
+            <h2>{selectedLocation.properties.title}</h2>
+            <h3>{selectedLocation.properties.address}</h3>
+            {selectedLocation.properties.short_desc}
+            <p>
+              <button onClick={addToTour}>Add to Tour</button>
+            </p>
+          </>
+        )}
+        <h1>Tour Stops:</h1>
+        {tourLocations.length === 0 && <p>No locations added.</p>}
+        <ul className="list-group">
+          {tourLocations.map((location) => (
+            <li
+              className="list-group-item"
+              key={location.properties.art_id}
+              onClick={() => {
+                console.log(location);
+              }}
+            >
+              {location.properties.title}
+            </li>
+          ))}
+        </ul>
+        <button onClick={createTour}>Create Tour</button>
+      </>
     </div>
   );
 };
