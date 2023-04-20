@@ -2,20 +2,18 @@ import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 // import "./App.css";
 import Map from "./components/Map";
-import AboutUs from "./components/AboutUs";
+import About from "./components/About";
 // import TourMap from "./TourMap";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
+import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
 
 function App() {
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About Us</Link>
-      </nav>
+      <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<Map />} />
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );
