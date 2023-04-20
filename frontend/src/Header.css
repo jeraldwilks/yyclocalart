@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box; 
+}
+
+header {
+    background-color: azure;
+    border: 1px solid black;
+    display: block;
+    justify-content: center;
+}
+h1.header {
+    color: purple;
+  }

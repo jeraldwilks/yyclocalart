@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0;
+    background-color: #ddd;
+    font-family: "Open Sans Condensed", Arial, Helvetica, sans-serif;
+    /* font-variant: small-caps; */
+    font-weight: bold;
+    font-size: 36px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    /* gap: 1rem; */
+
+    margin: 0;
+    border: 1px solid black;
+    /* border-radius: 25px; */
+    padding-left: 0;
+
+    list-style-type: none;
+}
+
+/* add class="nav-link" to your links to make this work */
+/* ul > li.nav-link > a {
+    color: goldenrod;
+} */
+
+nav li {
+    border: 1px solid black;
+    flex: auto;
+}
+
+/* .necromancer {
+    flex: 2;
+} */
+nav ul a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: #ddd;
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav ul a:hover {
+    background-color: rgb(128, 188, 206);
+    color: rgb(220, 232, 3);
+}
+
+nav li.yyc {
+    margin: 0;
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: #ddd;
+    font-family: "Open Sans Condensed", Arial, Helvetica, sans-serif;
+    /* font-variant: small-caps; */
+    font-weight: bold;
+    padding: 1rem;
+    text-align: center;
+}
