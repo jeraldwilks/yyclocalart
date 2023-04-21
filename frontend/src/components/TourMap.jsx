@@ -1,33 +1,25 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
-import { useLocation } from "react-router-dom";
 // import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import { TourContext } from "../../context/TourContext";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
 const TourMap = () => {
-  const location = useLocation();
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
-  const tourLocations = location.state.tourLocations;
-  const tourCoordinates = location.state.tourCoordinates;
+  const { tourLocations, setTourLocations } = useContext(TourContext);
 
   const convertToGeojson = () => {
     const toReturn = {
       type: "FeatureCollection",
       features: tourLocations,
     };
-    for (const i in toReturn.features) {
-      toReturn.features[i].geometry = {
-        type: "Point",
-        coordinates: tourCoordinates[i],
-      };
-    }
     return toReturn;
   };
 

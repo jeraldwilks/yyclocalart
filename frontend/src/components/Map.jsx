@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Link } from "react-router-dom";
+import { TourContext } from "../../context/TourContext";
 // import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
@@ -13,8 +14,7 @@ const Map = () => {
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
-  const [tourLocations, setTourLocations] = useState([]);
-  const [tourCoordinates, setTourCoordinates] = useState([]);
+  const { tourLocations, setTourLocations } = useContext(TourContext);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
@@ -104,10 +104,6 @@ const Map = () => {
 
   const addToTour = () => {
     setTourLocations((prevArray) => [...prevArray, selectedLocation]);
-    setTourCoordinates((prevArray) => [
-      ...prevArray,
-      selectedLocation.geometry.coordinates,
-    ]);
   };
 
   //https://api.mapbox.com/directions/v5/{profile}/{coordinates}
@@ -125,7 +121,7 @@ const Map = () => {
             <h3>{selectedLocation.properties.address}</h3>
             {selectedLocation.properties.short_desc}
             <p>
-              {tourLocations <= 25 && (
+              {tourLocations.length <= 25 && (
                 <button onClick={addToTour}>Add to Tour</button>
               )}
             </p>
@@ -147,7 +143,7 @@ const Map = () => {
           ))}
         </ul>
         {tourLocations.length >= 2 && (
-          <Link to="/tourmap" state={{ tourLocations, tourCoordinates }}>
+          <Link to="/tourmap">
             <button>Create Tour</button>
           </Link>
         )}
