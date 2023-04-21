@@ -2,18 +2,38 @@ import React, { useRef, useEffect, useState } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
+import { useLocation } from "react-router-dom";
 // import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
 const TourMap = () => {
+  const location = useLocation();
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
-  const [tourLocations, setTourLocations] = useState([]);
-  console.log("Load TourMap()");
+  const tourLocations = location.state.tourLocations;
+  const tourCoordinates = location.state.tourCoordinates;
+
+  const convertToGeojson = () => {
+    const toReturn = {
+      type: "FeatureCollection",
+      features: tourLocations,
+    };
+    for (const i in toReturn.features) {
+      toReturn.features[i].geometry = {
+        type: "Point",
+        coordinates: tourCoordinates[i],
+      };
+    }
+    return toReturn;
+  };
+
+  const myGeojson = convertToGeojson(tourLocations);
+  console.log(tourLocations);
+  console.log(myGeojson);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -36,7 +56,6 @@ const TourMap = () => {
         })
       )
       .addControl(new mapboxgl.NavigationControl());
-    console.log("Load useEffect()");
     // .addControl(
     //   new MapboxGeocoder({
     //     accessToken: mapboxgl.accessToken,
@@ -46,7 +65,7 @@ const TourMap = () => {
     map.current.on("load", () => {
       map.current.addSource("art", {
         type: "geojson",
-        data: "/api/geojson",
+        data: myGeojson,
       });
       map.current.loadImage("icon.png", (error, image) => {
         if (error) throw error;
@@ -72,7 +91,6 @@ const TourMap = () => {
     });
     map.current.on("click", "art", (e) => {
       // Copy coordinates array.
-      // console.log(e.features[0]);
       const coordinates = e.features[0].geometry.coordinates.slice();
       const description = e.features[0].properties.short_desc;
       const title = e.features[0].properties.title;
@@ -83,29 +101,18 @@ const TourMap = () => {
       while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
       }
-      // console.log(e);
-      // console.log(coordinates);
-      console.log(e.features[0]);
-      let newArray = [...tourLocations, e.features[0]];
-      console.log("Maggie Madness:");
-      console.log(newArray);
-      setTourLocations(newArray);
-      // setTourLocations((prevArray) => [...prevArray, e.features[0]]);
-      console.log("tourLocations:");
-      console.log(tourLocations);
-
-      // new mapboxgl.Popup()
-      //   .setLngLat(coordinates)
-      //   .setHTML(
-      //     "<h2>" +
-      //       title +
-      //       "</h2><h3>" +
-      //       address +
-      //       "</h3><p>" +
-      //       description +
-      //       "</p>"
-      //   )
-      //   .addTo(map.current);
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(
+          "<h2>" +
+            title +
+            "</h2><h3>" +
+            address +
+            "</h3><p>" +
+            description +
+            "</p>"
+        )
+        .addTo(map.current);
     });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
@@ -117,12 +124,12 @@ const TourMap = () => {
     map.current.on("mouseleave", "art", () => {
       map.current.getCanvas().style.cursor = "";
     });
-  }, [tourLocations]);
+  });
 
   return (
-    <div>
+    <>
       <div ref={mapContainer} className="map-container" />
-      <h1>Tour Stops:</h1>
+      <h2>Tour Stops:</h2>
       {tourLocations.length === 0 && <p>No locations added.</p>}
       <ul className="list-group">
         {tourLocations.map((location) => (
@@ -130,14 +137,14 @@ const TourMap = () => {
             className="list-group-item"
             key={location.properties.art_id}
             onClick={() => {
-              console.log(location);
+              console.log(location.geometry.coordinates);
             }}
           >
-            {location.properties.title}
+            {location.properties.title} - {location.properties.address}
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

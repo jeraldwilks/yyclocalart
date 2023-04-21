@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
+import { Link } from "react-router-dom";
 // import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
@@ -13,6 +14,7 @@ const Map = () => {
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
   const [tourLocations, setTourLocations] = useState([]);
+  const [tourCoordinates, setTourCoordinates] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   useEffect(() => {
@@ -72,7 +74,7 @@ const Map = () => {
     map.current.on("click", "art", (e) => {
       // Copy coordinates array.
       // console.log(e.features[0]);
-      const coordinates = e.features[0].geometry.coordinates.slice();
+      // const coordinates = e.features[0].geometry.coordinates.slice();
       // const description = e.features[0].properties.short_desc;
       // const title = e.features[0].properties.title;
       // const address = e.features[0].properties.address;
@@ -102,9 +104,14 @@ const Map = () => {
 
   const addToTour = () => {
     setTourLocations((prevArray) => [...prevArray, selectedLocation]);
+    setTourCoordinates((prevArray) => [
+      ...prevArray,
+      selectedLocation.geometry.coordinates,
+    ]);
   };
 
-  const createTour = () => {};
+  //https://api.mapbox.com/directions/v5/{profile}/{coordinates}
+  //https://api.mapbox.com/directions/v5/mapbox/walking/-114.0748777%2C51.0467936%3B-114.0573742%2C51.0448094%3B-114.0693834%2C51.055465?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=pk.ey...
 
   return (
     <div>
@@ -118,7 +125,9 @@ const Map = () => {
             <h3>{selectedLocation.properties.address}</h3>
             {selectedLocation.properties.short_desc}
             <p>
-              <button onClick={addToTour}>Add to Tour</button>
+              {tourLocations <= 25 && (
+                <button onClick={addToTour}>Add to Tour</button>
+              )}
             </p>
           </>
         )}
@@ -130,14 +139,18 @@ const Map = () => {
               className="list-group-item"
               key={location.properties.art_id}
               onClick={() => {
-                console.log(location);
+                console.log(location.geometry.coordinates);
               }}
             >
               {location.properties.title}
             </li>
           ))}
         </ul>
-        <button onClick={createTour}>Create Tour</button>
+        {tourLocations.length >= 2 && (
+          <Link to="/tourmap" state={{ tourLocations, tourCoordinates }}>
+            <button>Create Tour</button>
+          </Link>
+        )}
       </>
     </div>
   );
