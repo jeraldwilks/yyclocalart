@@ -26,4 +26,4 @@ geojsonRouter.get("/", async (req, res) => {
 });
 
 // Empty save geoJSON once per hour
-setInterval(() => (geoJSON = null)), 3600000;
+setInterval(() => (geoJSON = null), 3600000);
