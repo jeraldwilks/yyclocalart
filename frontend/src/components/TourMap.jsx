@@ -19,7 +19,6 @@ const TourMap = () => {
   const { tourLocations, setTourLocations } = useContext(TourContext);
   const myGeojson = convertToGeojson(tourLocations);
   const routesURL = getRouteURL(tourLocations);
-  console.log(routesURL);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
