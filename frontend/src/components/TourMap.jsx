@@ -2,8 +2,6 @@ import React, { useRef, useEffect, useState, useContext } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
-// import MapboxDirections from "@mapbox/mapbox-gl-directions";
-// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { TourContext } from "../../context/TourContext";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
