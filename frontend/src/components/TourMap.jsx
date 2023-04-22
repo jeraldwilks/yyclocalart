@@ -39,12 +39,6 @@ const TourMap = () => {
         })
       )
       .addControl(new mapboxgl.NavigationControl());
-    // .addControl(
-    //   new MapboxGeocoder({
-    //     accessToken: mapboxgl.accessToken,
-    //     mapboxgl: mapboxgl,
-    //   })
-    // );
     map.current.on("load", () => {
       map.current.addSource("route", {
         type: "geojson",
