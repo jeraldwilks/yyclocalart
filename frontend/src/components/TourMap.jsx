@@ -8,8 +8,6 @@ import { TourContext } from "../../context/TourContext";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
-//https://api.mapbox.com/directions/v5/{profile}/{coordinates}
-
 const TourMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
