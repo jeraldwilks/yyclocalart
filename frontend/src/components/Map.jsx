@@ -106,9 +106,6 @@ const Map = () => {
     setTourLocations((prevArray) => [...prevArray, selectedLocation]);
   };
 
-  //https://api.mapbox.com/directions/v5/{profile}/{coordinates}
-  //https://api.mapbox.com/directions/v5/mapbox/walking/-114.0748777%2C51.0467936%3B-114.0573742%2C51.0448094%3B-114.0693834%2C51.055465?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=pk.ey...
-
   return (
     <div>
       <div ref={mapContainer} className="map-container" />

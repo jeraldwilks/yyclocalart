@@ -14,6 +14,7 @@ let geoJSON = null;
 geojsonRouter.get("/", async (req, res) => {
   try {
     if (geoJSON == null) {
+      console.log("Fetching...");
       geoJSON = await fetch(calgaryURL).then(function (response) {
         return response.json();
       });
@@ -26,4 +27,4 @@ geojsonRouter.get("/", async (req, res) => {
 });
 
 // Empty save geoJSON once per hour
-setInterval(() => (geoJSON = null)), 3600000;
+setInterval(() => (geoJSON = null), 3600000);

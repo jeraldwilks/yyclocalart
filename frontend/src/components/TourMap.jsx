@@ -2,10 +2,13 @@ import React, { useRef, useEffect, useState, useContext } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
+// import MapboxDirections from "@mapbox/mapbox-gl-directions";
 // import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { TourContext } from "../../context/TourContext";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
+
+//https://api.mapbox.com/directions/v5/{profile}/{coordinates}
 
 const TourMap = () => {
   const mapContainer = useRef(null);
@@ -14,18 +17,9 @@ const TourMap = () => {
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
   const { tourLocations, setTourLocations } = useContext(TourContext);
-
-  const convertToGeojson = () => {
-    const toReturn = {
-      type: "FeatureCollection",
-      features: tourLocations,
-    };
-    return toReturn;
-  };
-
   const myGeojson = convertToGeojson(tourLocations);
-  console.log(tourLocations);
-  console.log(myGeojson);
+  const routesURL = getRoute(tourLocations);
+  console.log(routesURL);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -55,6 +49,10 @@ const TourMap = () => {
     //   })
     // );
     map.current.on("load", () => {
+      map.current.addSource("route", {
+        type: "geojson",
+        data: routesURL,
+      });
       map.current.addSource("art", {
         type: "geojson",
         data: myGeojson,
@@ -65,6 +63,11 @@ const TourMap = () => {
         // Add the image to the map style.
         map.current.addImage("icon", image);
       });
+      // map.current.addLayer({
+      //   id: "route",
+      //   type: "line",
+      //   source: "route",
+      // });
       map.current.addLayer({
         id: "art",
         type: "symbol",
@@ -141,3 +144,34 @@ const TourMap = () => {
 };
 
 export default TourMap;
+
+const convertToGeojson = (tourLocations) => {
+  const toReturn = {
+    type: "FeatureCollection",
+    features: tourLocations,
+  };
+  return toReturn;
+};
+
+const getRoute = (tourLocations) => {
+  let directionsURL = "https://api.mapbox.com/directions/v5/mapbox/walking/";
+  for (let i in tourLocations) {
+    let tempURL = directionsURL;
+    let newCoord =
+      tourLocations[i].geometry.coordinates[0] +
+      "%2C" +
+      tourLocations[i].geometry.coordinates[1];
+    directionsURL = tempURL + newCoord;
+    if (i < tourLocations.length - 1) {
+      let temp = directionsURL;
+      directionsURL = temp + "%3B";
+    } else {
+      let temp = directionsURL;
+      directionsURL =
+        temp +
+        "?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=" +
+        mapboxgl.accessToken;
+    }
+  }
+  return directionsURL;
+};
