@@ -18,7 +18,7 @@ const TourMap = () => {
   const [zoom, setZoom] = useState(13);
   const { tourLocations, setTourLocations } = useContext(TourContext);
   const myGeojson = convertToGeojson(tourLocations);
-  const routesURL = getRoute(tourLocations);
+  const routesURL = getRouteURL(tourLocations);
   console.log(routesURL);
 
   useEffect(() => {
@@ -63,11 +63,15 @@ const TourMap = () => {
         // Add the image to the map style.
         map.current.addImage("icon", image);
       });
-      // map.current.addLayer({
-      //   id: "route",
-      //   type: "line",
-      //   source: "route",
-      // });
+      map.current.addLayer({
+        id: "route",
+        type: "line",
+        source: "route",
+        paint: {
+          "line-color": "#888",
+          "line-width": 4,
+        },
+      });
       map.current.addLayer({
         id: "art",
         type: "symbol",
@@ -153,25 +157,19 @@ const convertToGeojson = (tourLocations) => {
   return toReturn;
 };
 
-const getRoute = (tourLocations) => {
-  let directionsURL = "https://api.mapbox.com/directions/v5/mapbox/walking/";
+const getRouteURL = (tourLocations) => {
+  let coordString = "/api/route/";
   for (let i in tourLocations) {
-    let tempURL = directionsURL;
+    let tempURL = coordString;
     let newCoord =
       tourLocations[i].geometry.coordinates[0] +
       "%2C" +
       tourLocations[i].geometry.coordinates[1];
-    directionsURL = tempURL + newCoord;
+    coordString = tempURL + newCoord;
     if (i < tourLocations.length - 1) {
-      let temp = directionsURL;
-      directionsURL = temp + "%3B";
-    } else {
-      let temp = directionsURL;
-      directionsURL =
-        temp +
-        "?alternatives=true&continue_straight=true&geometries=geojson&language=en&overview=simplified&steps=true&access_token=" +
-        mapboxgl.accessToken;
+      let temp = coordString;
+      coordString = temp + "%3B";
     }
   }
-  return directionsURL;
+  return coordString;
 };
