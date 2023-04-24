@@ -109,6 +109,10 @@ const Map = () => {
     setTourLocations((prevArray) => [...prevArray, selectedLocation]);
   };
 
+  const removeLocation = (location) => {
+    setTourLocations((current) => current.filter((loc) => loc != location));
+  };
+
   return (
     <div>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -136,6 +140,7 @@ const Map = () => {
             {tourLocations.map((location) => (
               <ListItem>
                 <ListItemText primary={location.properties.title} />
+                <button onClick={() => removeLocation(location)}>Remove</button>
               </ListItem>
             ))}
           </List>
