@@ -4,7 +4,8 @@ import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loade
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Link } from "react-router-dom";
 import { TourContext } from "../../context/TourContext";
-// import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
@@ -37,13 +38,14 @@ const Map = () => {
           showUserLocation: true,
         })
       )
-      .addControl(new mapboxgl.NavigationControl());
-    // .addControl(
-    //   new MapboxGeocoder({
-    //     accessToken: mapboxgl.accessToken,
-    //     mapboxgl: mapboxgl,
-    //   })
-    // );
+      .addControl(new mapboxgl.NavigationControl())
+      .addControl(
+        new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          mapboxgl: mapboxgl,
+        }),
+        "top-left"
+      );
     map.current.on("load", () => {
       map.current.addSource("art", {
         type: "geojson",
