@@ -135,7 +135,6 @@ const Map = () => {
           <List>
             {tourLocations.map((location) => (
               <ListItem>
-                {/* key={location.properties.art_id} */}
                 <ListItemText primary={location.properties.title} />
               </ListItem>
             ))}
