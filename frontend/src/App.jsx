@@ -6,16 +6,30 @@ import About from "./components/About";
 import TourMap from "./components/TourMap";
 // import "bootstrap/dist/css/bootstrap.css";
 import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#00bcd4"
+    },
+    secondary: {
+      main: "#f50057"
+    }
+  }
+});
 
 function App() {
   return (
     <div>
+      <ThemeProvider theme={theme}>
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<Map />} />
         <Route path="/about" element={<About />} />
         <Route path="/tourmap" element={<TourMap />} />
       </Routes>
+      </ThemeProvider>
     </div>
   );
 }
