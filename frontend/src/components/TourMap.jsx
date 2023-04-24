@@ -3,6 +3,7 @@ import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
 import { TourContext } from "../../context/TourContext";
+import { Grid, List, ListItem, ListItemText } from "@mui/material";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
@@ -73,6 +74,34 @@ const TourMap = () => {
           "line-cap": "round",
         },
       });
+      map.current.addLayer(
+        {
+          id: "routearrows",
+          type: "symbol",
+          source: "route",
+          layout: {
+            "symbol-placement": "line",
+            "text-field": "▶",
+            "text-size": ["interpolate", ["linear"], ["zoom"], 12, 24, 22, 60],
+            "symbol-spacing": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              12,
+              30,
+              22,
+              160,
+            ],
+            "text-keep-upright": false,
+          },
+          paint: {
+            "text-color": "#3887be",
+            "text-halo-color": "hsl(55, 11%, 96%)",
+            "text-halo-width": 3,
+          },
+        },
+        "waterway-label"
+      );
       map.current.addLayer({
         id: "art",
         type: "symbol",
@@ -127,24 +156,25 @@ const TourMap = () => {
   });
 
   return (
-    <>
-      <div ref={mapContainer} className="map-container" />
-      <h2>Tour Stops:</h2>
-      {tourLocations.length === 0 && <p>No locations added.</p>}
-      <ul className="list-group">
-        {tourLocations.map((location) => (
-          <li
-            className="list-group-item"
-            key={location.properties.art_id}
-            onClick={() => {
-              console.log(location.geometry.coordinates);
-            }}
-          >
-            {location.properties.title} - {location.properties.address}
-          </li>
-        ))}
-      </ul>
-    </>
+    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid item xs={8}>
+        <div ref={mapContainer} className="map-container" />
+      </Grid>
+      <Grid item xs={4}>
+        <h2>Tour Stops:</h2>
+        {tourLocations.length === 0 && <p>No locations added.</p>}
+        <List>
+          {tourLocations.map((location) => (
+            <ListItem>
+              <ListItemText
+                primary={location.properties.title}
+                secondary={location.properties.address}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Grid>
+    </Grid>
   );
 };
 

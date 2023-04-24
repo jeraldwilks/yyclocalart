@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import "./Map.css";
-import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl, { Popup } from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Link } from "react-router-dom";
 import { TourContext } from "../../context/TourContext";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import { Grid, List, ListItem, ListItemText } from "@mui/material";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
@@ -105,48 +106,53 @@ const Map = () => {
   });
 
   const addToTour = () => {
-    setTourLocations((prevArray) => [...prevArray, selectedLocation]);
+    if (tourLocations.indexOf(selectedLocation) == -1) {
+      setTourLocations((prevArray) => [...prevArray, selectedLocation]);
+    }
+  };
+
+  const removeLocation = (location) => {
+    setTourLocations((current) => current.filter((loc) => loc != location));
   };
 
   return (
     <div>
-      <div ref={mapContainer} className="map-container" />
-      <>
-        <h1>Selected Location:</h1>
-        {selectedLocation == null && <p>No location selected</p>}
-        {selectedLocation != null && (
-          <>
-            <h2>{selectedLocation.properties.title}</h2>
-            <h3>{selectedLocation.properties.address}</h3>
-            {selectedLocation.properties.short_desc}
-            <p>
-              {tourLocations.length <= 25 && (
-                <button onClick={addToTour}>Add to Tour</button>
-              )}
-            </p>
-          </>
-        )}
-        <h1>Tour Stops:</h1>
-        {tourLocations.length === 0 && <p>No locations added.</p>}
-        <ul className="list-group">
-          {tourLocations.map((location) => (
-            <li
-              className="list-group-item"
-              key={location.properties.art_id}
-              onClick={() => {
-                console.log(location.geometry.coordinates);
-              }}
-            >
-              {location.properties.title}
-            </li>
-          ))}
-        </ul>
-        {tourLocations.length >= 2 && (
-          <Link to="/tourmap">
-            <button>Create Tour</button>
-          </Link>
-        )}
-      </>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={8}>
+          <div ref={mapContainer} className="map-container" />
+        </Grid>
+        <Grid item xs={4}>
+          <h2>Selected Location:</h2>
+          {selectedLocation == null && <p>No location selected</p>}
+          {selectedLocation != null && (
+            <>
+              <h3>{selectedLocation.properties.title}</h3>
+              <p>{selectedLocation.properties.address}</p>
+              {selectedLocation.properties.short_desc}
+              <p>
+                {tourLocations.length <= 25 && (
+                  <button onClick={addToTour}>Add to Tour</button>
+                )}
+              </p>
+            </>
+          )}
+          <h2>Tour Stops:</h2>
+          {tourLocations.length === 0 && <p>No locations added.</p>}
+          <List>
+            {tourLocations.map((location) => (
+              <ListItem>
+                <ListItemText primary={location.properties.title} />
+                <button onClick={() => removeLocation(location)}>Remove</button>
+              </ListItem>
+            ))}
+          </List>
+          {tourLocations.length >= 2 && (
+            <Link to="/tourmap">
+              <button>Create Tour</button>
+            </Link>
+          )}
+        </Grid>
+      </Grid>
     </div>
   );
 };

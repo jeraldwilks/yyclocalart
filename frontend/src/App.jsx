@@ -1,10 +1,9 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-// import "./App.css";
+import "./App.css";
 import Map from "./components/Map";
 import About from "./components/About";
 import TourMap from "./components/TourMap";
-// import "bootstrap/dist/css/bootstrap.css";
 import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -23,6 +22,7 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
+    <div className="fullscreen">
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<Map />} />
