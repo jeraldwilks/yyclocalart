@@ -20,9 +20,8 @@ const theme = createTheme({
 
 function App() {
   return (
-    <div>
-      <ThemeProvider theme={theme}>
     <div className="fullscreen">
+      <ThemeProvider theme={theme}>
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<Map />} />
