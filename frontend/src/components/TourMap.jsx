@@ -73,6 +73,34 @@ const TourMap = () => {
           "line-cap": "round",
         },
       });
+      map.current.addLayer(
+        {
+          id: "routearrows",
+          type: "symbol",
+          source: "route",
+          layout: {
+            "symbol-placement": "line",
+            "text-field": "▶",
+            "text-size": ["interpolate", ["linear"], ["zoom"], 12, 24, 22, 60],
+            "symbol-spacing": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              12,
+              30,
+              22,
+              160,
+            ],
+            "text-keep-upright": false,
+          },
+          paint: {
+            "text-color": "#3887be",
+            "text-halo-color": "hsl(55, 11%, 96%)",
+            "text-halo-width": 3,
+          },
+        },
+        "waterway-label"
+      );
       map.current.addLayer({
         id: "art",
         type: "symbol",
