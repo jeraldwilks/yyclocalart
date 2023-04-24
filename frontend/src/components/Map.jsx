@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import "./Map.css";
-import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import mapboxgl, { Popup } from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Link } from "react-router-dom";
 import { TourContext } from "../../context/TourContext";
@@ -106,7 +106,9 @@ const Map = () => {
   });
 
   const addToTour = () => {
-    setTourLocations((prevArray) => [...prevArray, selectedLocation]);
+    if (tourLocations.indexOf(selectedLocation) == -1) {
+      setTourLocations((prevArray) => [...prevArray, selectedLocation]);
+    }
   };
 
   const removeLocation = (location) => {
