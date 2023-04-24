@@ -2,21 +2,25 @@ import React, { useRef, useEffect, useState, useContext } from "react";
 import "./Map.css";
 import mapboxgl from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
-import { Link } from "react-router-dom";
 import { TourContext } from "../../context/TourContext";
-import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
-const Map = () => {
+const TourMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
   const { tourLocations, setTourLocations } = useContext(TourContext);
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  const myGeojson = convertToGeojson(tourLocations);
+  const routesURL = getRouteURL(tourLocations);
+  // let routeGeojson;
+
+  // const getRouteGeojson = async () => (routeGeojson = await fetch(getRouteURL));
+
+  // getRouteGeojson();
+  // console.log(routeGeojson);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -38,24 +42,36 @@ const Map = () => {
           showUserLocation: true,
         })
       )
-      .addControl(new mapboxgl.NavigationControl())
-      .addControl(
-        new MapboxGeocoder({
-          accessToken: mapboxgl.accessToken,
-          mapboxgl: mapboxgl,
-        }),
-        "top-left"
-      );
+      .addControl(new mapboxgl.NavigationControl());
     map.current.on("load", () => {
+      map.current.addSource("route", {
+        type: "geojson",
+        // data: routeGeojson,
+        data: routesURL,
+      });
       map.current.addSource("art", {
         type: "geojson",
-        data: "/api/geojson",
+        data: myGeojson,
       });
       map.current.loadImage("icon.png", (error, image) => {
         if (error) throw error;
 
         // Add the image to the map style.
         map.current.addImage("icon", image);
+      });
+      map.current.addLayer({
+        id: "route",
+        type: "line",
+        source: "route",
+        paint: {
+          "line-color": "#3887be",
+          "line-width": 5,
+          "line-opacity": 0.75,
+        },
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
       });
       map.current.addLayer({
         id: "art",
@@ -75,22 +91,28 @@ const Map = () => {
     });
     map.current.on("click", "art", (e) => {
       // Copy coordinates array.
-      // console.log(e.features[0]);
-      // const coordinates = e.features[0].geometry.coordinates.slice();
-      // const description = e.features[0].properties.short_desc;
-      // const title = e.features[0].properties.title;
-      // const address = e.features[0].properties.address;
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const description = e.features[0].properties.short_desc;
+      const title = e.features[0].properties.title;
+      const address = e.features[0].properties.address;
       // Ensure that if the map is zoomed out such that multiple
       // copies of the feature are visible, the popup appears
-      // over the copy being pointed to.
-      // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      //   coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      // }
-      setSelectedLocation(e.features[0]);
-      //   new mapboxgl.Popup()
-      //     .setLngLat(coordinates)
-      //     .setHTML("<h2>" + title + "</h2>")
-      //     .addTo(map.current);
+      // // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+      new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(
+          "<h2>" +
+            title +
+            "</h2><h3>" +
+            address +
+            "</h3><p>" +
+            description +
+            "</p>"
+        )
+        .addTo(map.current);
     });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
@@ -104,51 +126,51 @@ const Map = () => {
     });
   });
 
-  const addToTour = () => {
-    setTourLocations((prevArray) => [...prevArray, selectedLocation]);
-  };
-
   return (
-    <div>
+    <>
       <div ref={mapContainer} className="map-container" />
-      <>
-        <h1>Selected Location:</h1>
-        {selectedLocation == null && <p>No location selected</p>}
-        {selectedLocation != null && (
-          <>
-            <h2>{selectedLocation.properties.title}</h2>
-            <h3>{selectedLocation.properties.address}</h3>
-            {selectedLocation.properties.short_desc}
-            <p>
-              {tourLocations.length <= 25 && (
-                <button onClick={addToTour}>Add to Tour</button>
-              )}
-            </p>
-          </>
-        )}
-        <h1>Tour Stops:</h1>
-        {tourLocations.length === 0 && <p>No locations added.</p>}
-        <ul className="list-group">
-          {tourLocations.map((location) => (
-            <li
-              className="list-group-item"
-              key={location.properties.art_id}
-              onClick={() => {
-                console.log(location.geometry.coordinates);
-              }}
-            >
-              {location.properties.title}
-            </li>
-          ))}
-        </ul>
-        {tourLocations.length >= 2 && (
-          <Link to="/tourmap">
-            <button>Create Tour</button>
-          </Link>
-        )}
-      </>
-    </div>
+      <h2>Tour Stops:</h2>
+      {tourLocations.length === 0 && <p>No locations added.</p>}
+      <ul className="list-group">
+        {tourLocations.map((location) => (
+          <li
+            className="list-group-item"
+            key={location.properties.art_id}
+            onClick={() => {
+              console.log(location.geometry.coordinates);
+            }}
+          >
+            {location.properties.title} - {location.properties.address}
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
-export default Map;
+export default TourMap;
+
+const convertToGeojson = (tourLocations) => {
+  const toReturn = {
+    type: "FeatureCollection",
+    features: tourLocations,
+  };
+  return toReturn;
+};
+
+const getRouteURL = (tourLocations) => {
+  let coordString = "/api/route/";
+  for (let i in tourLocations) {
+    let tempURL = coordString;
+    let newCoord =
+      tourLocations[i].geometry.coordinates[0] +
+      "%2C" +
+      tourLocations[i].geometry.coordinates[1];
+    coordString = tempURL + newCoord;
+    if (i < tourLocations.length - 1) {
+      let temp = coordString;
+      coordString = temp + "%3B";
+    }
+  }
+  return coordString;
+};

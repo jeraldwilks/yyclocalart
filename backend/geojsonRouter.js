@@ -1,5 +1,4 @@
 import express from "express";
-// import { model } from
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -25,5 +24,5 @@ geojsonRouter.get("/", async (req, res) => {
   }
 });
 
-// Empty save geoJSON once per hour
+// Empty saved geoJSON once per hour
 setInterval(() => (geoJSON = null), 3600000);

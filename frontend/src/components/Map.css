@@ -1,5 +1,5 @@
 .map-container {
-  height: 700px;
+  height: 500px;
   width: 1200px;
 }
 
@@ -14,4 +14,4 @@
   left: 0;
   margin: 12px;
   border-radius: 4px;
-  }
+}
