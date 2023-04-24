@@ -15,6 +15,12 @@ const TourMap = () => {
   const { tourLocations, setTourLocations } = useContext(TourContext);
   const myGeojson = convertToGeojson(tourLocations);
   const routesURL = getRouteURL(tourLocations);
+  // let routeGeojson;
+
+  // const getRouteGeojson = async () => (routeGeojson = await fetch(getRouteURL));
+
+  // getRouteGeojson();
+  // console.log(routeGeojson);
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -40,6 +46,7 @@ const TourMap = () => {
     map.current.on("load", () => {
       map.current.addSource("route", {
         type: "geojson",
+        // data: routeGeojson,
         data: routesURL,
       });
       map.current.addSource("art", {
@@ -57,8 +64,13 @@ const TourMap = () => {
         type: "line",
         source: "route",
         paint: {
-          "line-color": "#888",
-          "line-width": 4,
+          "line-color": "#3887be",
+          "line-width": 5,
+          "line-opacity": 0.75,
+        },
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
         },
       });
       map.current.addLayer({
