@@ -96,7 +96,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -120,7 +120,7 @@ function ResponsiveAppBar() {
               <Link to={routes[index]} key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block", fontFamily: "monospace", fontWeight: 550, letterSpacing: ".3rem" }}
+                  sx={{ my: 1, color: "black", display: "block", fontFamily: "monospace", fontWeight: 700, letterSpacing: ".3rem" }}
                 >
                   {page}
                 </Button>
