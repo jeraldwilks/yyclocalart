@@ -5,7 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Grid } from "@mui/material";
+
 
 // const About = () => {
 //   return (
@@ -26,8 +26,9 @@ const bull = (
 
 export default function BasicCard(props) {
   return (
-    <Grid container spacing={4} rowSpacing={4} columnSpacing={{ xs: 1, sm: 6, xl: 2 }}>
+    
     <Card sx={{ 
+      marginTop: 5,
       minWidth: 400, 
       minHeight: 200,
       // backgroundImage: "url('../images/IMG_5432.jpeg')", 
@@ -54,7 +55,6 @@ export default function BasicCard(props) {
         <Button size="small">Learn More</Button>
       </CardActions> */}
     </Card>
-    </Grid>
   );
 }
 

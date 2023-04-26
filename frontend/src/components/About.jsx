@@ -1,5 +1,7 @@
 import teamMembers from "../teamMembers";
 import AboutCard from "./AboutCard"
+import { Grid } from "@mui/material";
+
 
 function createCard(teamMember) {
   return (
@@ -15,9 +17,9 @@ function AboutApp() {
 console.log(teamMembers);
 
 return (
-  <div>
+  <Grid container spacing={4} rowSpacing={2} columnSpacing={{ xs: 1, sm: 4, md: 6}}>
 {teamMembers.map(createCard)}
-  </div>
+  </Grid>
 );
 }
 
