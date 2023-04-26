@@ -5,6 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { Grid } from "@mui/material";
 
 // const About = () => {
 //   return (
@@ -25,12 +26,19 @@ const bull = (
 
 export default function BasicCard(props) {
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Grid container spacing={2} rowSpacing={1} columnSpacing={{ xs: 1, sm: 6, xl: 2 }}>
+    <Card sx={{ 
+      minWidth: 275, 
+      // backgroundImage: "url('../images/IMG_5432.jpeg')", 
+      // backgroundRepeat: "no-repeat"
+      // height: "300px,
+      // width: "400x"
+  }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Team Member Name:
         </Typography>
-        <Typography variant="h5" component="div">
+        <Typography variant="h6" component="div">
           {props.name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
@@ -45,6 +53,7 @@ export default function BasicCard(props) {
         <Button size="small">Learn More</Button>
       </CardActions> */}
     </Card>
+    </Grid>
   );
 }
 
