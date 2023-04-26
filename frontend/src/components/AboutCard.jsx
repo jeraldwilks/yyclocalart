@@ -26,9 +26,10 @@ const bull = (
 
 export default function BasicCard(props) {
   return (
-    <Grid container spacing={2} rowSpacing={1} columnSpacing={{ xs: 1, sm: 6, xl: 2 }}>
+    <Grid container spacing={4} rowSpacing={4} columnSpacing={{ xs: 1, sm: 6, xl: 2 }}>
     <Card sx={{ 
-      minWidth: 275, 
+      minWidth: 400, 
+      minHeight: 200,
       // backgroundImage: "url('../images/IMG_5432.jpeg')", 
       // backgroundRepeat: "no-repeat"
       // height: "300px,
@@ -41,8 +42,8 @@ export default function BasicCard(props) {
         <Typography variant="h6" component="div">
           {props.name}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          email:
+        <Typography sx={{ fontSize: 14, mb: 1.5 }} color="text.secondary">
+          Email:
         </Typography>
         <Typography variant="body2">
           {props.email}
