@@ -31,6 +31,7 @@ export default function BasicCard(props) {
       marginTop: 5,
       minWidth: 400, 
       minHeight: 200,
+      backgroundColor: "#F4F2F2",
       // backgroundImage: "url('../images/IMG_5432.jpeg')", 
       // backgroundRepeat: "no-repeat"
       // height: "300px,
