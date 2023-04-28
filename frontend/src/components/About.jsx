@@ -18,13 +18,6 @@ console.log(teamMembers);
 
 return (
   <Grid container spacing={6} justify="center">
-    <Grid item xs={10} s={6} md={6}
-    direction="row"
-    maxWidth="425"
-    justify="space-evenly"
-    alignContent="center"
-    alignItems="center"
-    >
   {/* direction="row"
   rowSpacing={2}
   columnSpacing={{ xs: 12, sm: 6, md:6, lg: 6, xl: 6}}
@@ -32,8 +25,16 @@ return (
   // alignItems="center"
   // alignContent="center"
   // justify="center" */}
-{teamMembers.map(createCard)}
+{teamMembers.map((person) => (
+  <Grid item xs={12} md={6}
+  direction="row"
+  maxWidth="400"
+  justifyContent="center"
+  alignContent="center"
+  alignItems="center">
+    {createCard(person)}
   </Grid>
+))}
   </Grid>
 );
 }
