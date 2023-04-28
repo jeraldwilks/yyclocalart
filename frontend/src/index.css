@@ -39,7 +39,7 @@ body::after {
   position: absolute;
   z-index: -1;
   inset: 0;
-   opacity: 0.3;
+  opacity: 0.3;
 
   background-image: url("./images/IMG_9817.jpeg");
   background-repeat: no-repeat;
@@ -71,9 +71,24 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* . {
-  margin-top: 50px;
-} */
+.home {
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  color: rgb(53, 4, 70);
+}
+
+.home::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 1;
+
+  background-image: url("./images/IMG_9817.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
