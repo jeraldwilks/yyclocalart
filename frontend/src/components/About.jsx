@@ -17,8 +17,24 @@ function AboutApp() {
 console.log(teamMembers);
 
 return (
-  <Grid container spacing={4} rowSpacing={2} columnSpacing={{ xs: 1, sm: 4, md: 6}}>
-{teamMembers.map(createCard)}
+  <Grid container spacing={6} justify="center">
+  {/* direction="row"
+  rowSpacing={2}
+  columnSpacing={{ xs: 12, sm: 6, md:6, lg: 6, xl: 6}}
+  item
+  // alignItems="center"
+  // alignContent="center"
+  // justify="center" */}
+{teamMembers.map((person) => (
+  <Grid item xs={12} md={6}
+  direction="row"
+  maxWidth="400"
+  justifyContent="center"
+  alignContent="center"
+  alignItems="center">
+    {createCard(person)}
+  </Grid>
+))}
   </Grid>
 );
 }

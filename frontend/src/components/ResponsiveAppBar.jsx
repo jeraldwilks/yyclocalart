@@ -14,8 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-const pages = ["About"];
-const routes = ["/about"];
+const pages = ["map", "About"];
+const routes = ["/map", "/about"];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -115,12 +115,19 @@ function ResponsiveAppBar() {
           >
             YYC Local Art
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ ml: 3, flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, index) => (
               <Link to={routes[index]} key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 1, color: "black", display: "block", fontFamily: "monospace", fontWeight: 700, letterSpacing: ".3rem" }}
+                  sx={{
+                    my: 1,
+                    color: "black",
+                    display: "block",
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".3rem",
+                  }}
                 >
                   {page}
                 </Button>

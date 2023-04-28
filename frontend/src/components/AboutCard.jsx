@@ -15,27 +15,25 @@ import Typography from "@mui/material/Typography";
 //   );
 // };
 // export default About;
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+// const bull = (
+//   <Box
+//     component="span"
+//     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
+//   >
+//     •
+//   </Box>
+// );
 
 export default function BasicCard(props) {
   return (
     
     <Card sx={{ 
-      marginTop: 5,
+      marginTop:5,
       minWidth: 400, 
       minHeight: 200,
       backgroundColor: "#F4F2F2",
-      // backgroundImage: "url('../images/IMG_5432.jpeg')", 
-      // backgroundRepeat: "no-repeat"
-      // height: "300px,
-      // width: "400x"
+      // alignItems: "center",
+      // justify: "center"
   }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
