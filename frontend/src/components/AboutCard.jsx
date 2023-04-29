@@ -3,57 +3,35 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import CardMedia from '@mui/material/CardMedia';
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 
-// const About = () => {
-//   return (
-//     <div>
-//       <h1>This is Us!</h1>
-//     </div>
-//   );
-// };
-// export default About;
-// const bull = (
-//   <Box
-//     component="span"
-//     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-//   >
-//     •
-//   </Box>
-// );
-
-export default function BasicCard(props) {
+export default function MediaCard(props) {
   return (
-    
     <Card sx={{ 
-      marginTop:5,
-      minWidth: 400, 
-      minHeight: 200,
-      backgroundColor: "#F4F2F2",
-      // alignItems: "center",
-      // justify: "center"
-  }}>
+      maxWidth: 300,
+      marginTop: 5,
+      backgroundColor: "#F4F2F2"      
+      }}>
+      <CardMedia
+        sx={{ height: 300 }}
+        image={props.image}
+        title="team member image"
+      />
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Team Member Name:
+        <Typography gutterBottom variant="h5" component="div">
+        {props.name}
         </Typography>
-        <Typography variant="h6" component="div">
-          {props.name}
-        </Typography>
-        <Typography sx={{ fontSize: 14, mb: 1.5 }} color="text.secondary">
-          Email:
-        </Typography>
-        <Typography variant="body2">
-          {props.email}
-          <br />
+        <Typography variant="body2" color="text.secondary" fontSize={18}>
+        {props.email}
         </Typography>
       </CardContent>
       {/* <CardActions>
+        <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions> */}
     </Card>
   );
 }
-

@@ -9,6 +9,7 @@ function createCard(teamMember) {
     key={teamMember.id}
     name={teamMember.name}
     email={teamMember.email}
+    image={teamMember.image}
     />
   );
 }
@@ -17,21 +18,16 @@ function AboutApp() {
 console.log(teamMembers);
 
 return (
-  <Grid container spacing={6} justify="center">
-  {/* direction="row"
-  rowSpacing={2}
-  columnSpacing={{ xs: 12, sm: 6, md:6, lg: 6, xl: 6}}
-  item
-  // alignItems="center"
-  // alignContent="center"
-  // justify="center" */}
+  <Grid container spacing={1} justifyContent="center" marginLeft={1}>
+  
 {teamMembers.map((person) => (
-  <Grid item xs={12} md={6}
+  <Grid item xs={12} sm={6} md={3}
   direction="row"
   maxWidth="400"
-  justifyContent="center"
+  justifyContent="space-evenly"
   alignContent="center"
-  alignItems="center">
+  // alignItems="center"
+  >
     {createCard(person)}
   </Grid>
 ))}
