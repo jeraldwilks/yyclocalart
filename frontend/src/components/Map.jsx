@@ -64,7 +64,7 @@ const Map = () => {
         source: "art",
         layout: {
           "icon-image": "icon",
-          "icon-size": 0.075,
+          "icon-size": 0.09,
           "icon-allow-overlap": true,
           // get the title name from the source's "title" property
           "text-field": ["get", "title"],
@@ -153,6 +153,7 @@ const Map = () => {
           )}
         </Grid>
       </Grid>
+      <a className="iconcredit" href="https://www.flaticon.com/free-icons/paint" title="paint icons">Paint icons created by Freepik - Flaticon</a>
     </div>
   );
 };
