@@ -73,7 +73,7 @@ const TourMap = () => {
         type: "line",
         source: "route",
         paint: {
-          "line-color": "#3887be",
+          "line-color": "rgb(53, 4, 70)",
           "line-width": 5,
           "line-opacity": 0.75,
         },
