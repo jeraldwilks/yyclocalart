@@ -16,6 +16,7 @@ const TourMap = () => {
   const { tourLocations, setTourLocations } = useContext(TourContext);
   const myGeojson = convertToGeojson(tourLocations);
   const routesURL = getRouteURL(tourLocations);
+  const [routeData, setRouteData] = useState();
   // let routeGeojson;
 
   // const getRouteGeojson = async () => (routeGeojson = await fetch(getRouteURL));
@@ -24,6 +25,13 @@ const TourMap = () => {
   // console.log(routeGeojson);
 
   useEffect(() => {
+    const getRouteData = async () => {
+      const response = await fetch(routesURL);
+      const data = await response.json();
+      setRouteData(data);
+    };
+    getRouteData();
+
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
