@@ -16,7 +16,7 @@ export default function MediaCard(props) {
       backgroundColor: "#F4F2F2"      
       }}>
       <CardMedia
-        sx={{ height: 300 }}
+        sx={{ height: 350 }}
         image={props.image}
         title="team member image"
       />

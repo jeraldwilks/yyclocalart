@@ -15,7 +15,7 @@ const teamMembers = [
     id: 3,
     name: "Jonah Turning Robe",
     email: "jjturningrobe@gmail.com",
-    image: "image"
+    image: "./images/image-jonah.jpg"
   },
   {
     id: 4,
