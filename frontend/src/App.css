@@ -5,6 +5,18 @@
   text-align: center;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+footer {
+position:absolute;
+left:0;
+bottom:0;
+right:0;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

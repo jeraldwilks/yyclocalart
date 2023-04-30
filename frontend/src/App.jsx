@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./components/Home";
 import Map from "./components/Map";
 import About from "./components/About";
+import Footer from "./components/Footer";
 import TourMap from "./components/TourMap";
 import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/tourmap" element={<TourMap />} />
       </Routes>
       </ThemeProvider>
+      <Footer />
     </div>
   );
 }
