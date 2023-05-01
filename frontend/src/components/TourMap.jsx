@@ -103,7 +103,7 @@ const TourMap = () => {
             "text-keep-upright": false,
           },
           paint: {
-            "text-color": "#3887be",
+            "text-color": "rgb(53, 4, 70)",
             "text-halo-color": "hsl(55, 11%, 96%)",
             "text-halo-width": 3,
           },

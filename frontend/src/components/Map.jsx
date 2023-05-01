@@ -52,6 +52,10 @@ const Map = () => {
         type: "geojson",
         data: "/api/geojson",
       });
+      map.current.addSource("art2", {
+        type: "geojson",
+        data: "../../data/artlocations.geojson",
+      });
       map.current.loadImage("icon.png", (error, image) => {
         if (error) throw error;
 
@@ -62,6 +66,22 @@ const Map = () => {
         id: "art",
         type: "symbol",
         source: "art",
+        layout: {
+          "icon-image": "icon",
+          "icon-size": 0.09,
+          "icon-allow-overlap": true,
+          // get the title name from the source's "title" property
+          "text-field": ["get", "title"],
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 1.25],
+          "text-anchor": "top",
+        },
+      });
+      // Display artlocations.geojson layer on map
+      map.current.addLayer({
+        id: "art2",
+        type: "symbol",
+        source: "art2",
         layout: {
           "icon-image": "icon",
           "icon-size": 0.09,
@@ -101,6 +121,19 @@ const Map = () => {
 
     // Change it back to a pointer when it leaves.
     map.current.on("mouseleave", "art", () => {
+      map.current.getCanvas().style.cursor = "";
+    });
+    map.current.on("click", "art2", (e) => {
+      setSelectedLocation(e.features[0]);
+    });
+
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    map.current.on("mouseenter", "art2", () => {
+      map.current.getCanvas().style.cursor = "pointer";
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.current.on("mouseleave", "art2", () => {
       map.current.getCanvas().style.cursor = "";
     });
   });
@@ -153,7 +186,13 @@ const Map = () => {
           )}
         </Grid>
       </Grid>
-      <a className="iconcredit" href="https://www.flaticon.com/free-icons/paint" title="paint icons">Paint icons created by Freepik - Flaticon</a>
+      <a
+        className="iconcredit"
+        href="https://www.flaticon.com/free-icons/paint"
+        title="paint icons"
+      >
+        Paint icons created by Freepik - Flaticon
+      </a>
     </div>
   );
 };
