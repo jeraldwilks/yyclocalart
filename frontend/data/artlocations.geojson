@@ -1,314 +1,325 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "properties": {
-          "short_desc": "Mural by Rich, Jessica, and Felix Theroux (Rumble House Live Art).",
-          "address": "Bow River Pathway beneath the Louise Bridge",
-          "title": "The River Troll"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.084076, 51.050493] }
-      },
-{
-"type": "FeatureCollection",
-"features": [
+  "type": "FeatureCollection",
+  "features": [
     {
-    "type": "Feature",
-    "properties": {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by Rich, Jessica, and Felix Theroux (Rumble House Live Art).",
+        "address": "Bow River Pathway beneath the Louise Bridge",
+        "title": "The River Troll"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.084076, 51.050493] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Interactive sculpture by Living Lenses",
         "address": "950 McPherson Square Northeast",
         "title": "Wishing Well"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0415853, 51.0508778] }
     },
-    "geometry": { "type": "Point", "coordinates": [-114.0415853, 51.0508778] }
-    },
-{
-"type": "FeatureCollection",
-"features": [
     {
-    "type": "Feature",
-    "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "A few of Calgary's cow sculptures that once stood all around Calgary",
         "address": "608 9 Ave SW",
         "title": "Udderly Art Pasture"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0774531, 51.0451115] }
     },
-    "geometry": { "type": "Point", "coordinates": [-114.0774531, 51.0451115] }
-    },
-{
-"type": "FeatureCollection",
-"features": [
     {
-    "type": "Feature",
-    "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Garbage bin",
         "address": "49th Street NE and Whitehorn Rd NE",
         "title": "Portraits of Whitehorn 1"
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9648543, 51.0881609] }
     },
-    "geometry": { "type": "Point", "coordinates": [-113.9648543, 51.0881609] }
-    },
-{
-    "type": "FeatureCollection",
-    "features": [
+
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "N/B 52nd street & 44 Ave NE",
         "title": "Portraits of Whitehorn 2"
-        },
-        "geometry": { "type": "Point", "coordinates": [-113.9648543, 51.0914429] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9648543, 51.0914429] }
     },
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "N/B 52nd street & Whitehorn Dr NE",
-    "title": "Portraits of Whitehorn 3"
-    },
-    "geometry": { "type": "Point", "coordinates": [-113.9609121, 51.0859054] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": " Memorial Dr and Marlborough Way SE",
-    "title": "Untitled - Marlborough 1"
-    },
-    "geometry": { "type": "Point", "coordinates": [-113.9795079, 51.0524892] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "Marlborough Way and Marlborough Dr SE",
-    "title": "Cycle of the Seasons"
-    },
-    "geometry": { "type": "Point", "coordinates": [113.9751023, 51.0883269] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "Untitled - Marlborough 2",
-    "title": "Memorial Dr and 44 St SE"
-    },
-    "geometry": { "type": "Point", "coordinates": [-113.9725856, -113.9725856] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "36 St and Radcliffe Dr SE",
-    "title": "Untitled - Marlborough 3"
-    },
-    "geometry": { "type": "Point", "coordinates": [-113.9843023, 51.048143] }
-},
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": "N/B 52nd street & Whitehorn Dr NE",
+        "title": "Portraits of Whitehorn 3"
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9609121, 51.0859054] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": " Memorial Dr and Marlborough Way SE",
+        "title": "Untitled - Marlborough 1"
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9795079, 51.0524892] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": "Marlborough Way and Marlborough Dr SE",
+        "title": "Cycle of the Seasons"
+      },
+      "geometry": { "type": "Point", "coordinates": [113.9751023, 51.0883269] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": "Untitled - Marlborough 2",
+        "title": "Memorial Dr and 44 St SE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-113.9725856, -113.9725856]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": "36 St and Radcliffe Dr SE",
+        "title": "Untitled - Marlborough 3"
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9843023, 51.048143] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "44 St and 18 Ave SE",
         "title": "What makes you soar?"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.0658808, 51.0371942] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0658808, 51.0371942] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "36 St and 18 Ave SE",
         "title": "Untitled - Marlborough 4"
-        },
-        "geometry": { "type": "Point", "coordinates": [-113.9839843, 51.0367263] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9839843, 51.0367263] }
     },
     {
-        "type": "FeatureCollection",
-        "features": [
-        {
-            "type": "Feature",
-            "properties": {
-            "short_desc": "Utility box art",
-            "address": "44 St and 14 Ave SE",
-            "title": "Untitled - Marlborough 5"
-            },
-            "geometry": { "type": "Point", "coordinates": [-113.9726097, 51.0409506] }
-        },
-{
-    "type": "FeatureCollection",
-    "features": [
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": "44 St and 14 Ave SE",
+        "title": "Untitled - Marlborough 5"
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9726097, 51.0409506] }
+    },
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "Marlborough Dr and 52 St NE",
         "title": "Untitled - Marlborough 6"
-        },
-        "geometry": { "type": "Point", "coordinates": [-113.9584796, 51.0600637] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9584796, 51.0600637] }
     },
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "Marbank Dr and 52 St SE",
-    "title": "Untitled - Marlborough 7"
-    },
-    "geometry": { "type": "Point", "coordinates": [-113.9585344, 51.0622605] }
-},
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": "Marbank Dr and 52 St SE",
+        "title": "Untitled - Marlborough 7"
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9585344, 51.0622605] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "36 St and 12 Ave SE",
         "title": "Play"
-        },
-        "geometry": { "type": "Point", "coordinates": [-113.9842009, 51.0424771] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-113.9842009, 51.0424771] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "Country Hills Blvd and Shaganappi Tr NW",
         "title": "Untitled - Edgemont"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "119 19 St NW",
         "title": "Utilistories - Hillhurst/Sunnyside 1"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "505 10 St NW",
         "title": "Utilistories - Hillhurst/Sunnyside 2"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.088909, 51.0568599] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.088909, 51.0568599] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "1437 Kensington Rd NW",
         "title": "Utilistories - Hillhurst/Sunnyside 3"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.0942326, 51.052539] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0942326, 51.052539] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "1120 Kensington Rd NW",
         "title": "Utilistories - Hillhurst/Sunnyside 4"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.0895929, 51.0526235] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0895929, 51.0526235] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "add",
         "title": "Utilistories - Hillhurst/Sunnyside 5"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "584 Memorial Drive NW",
         "title": "Utilistories - Hillhurst/Sunnyside 6"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.0879971, 51.0519905] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0879971, 51.0519905] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "940 Memorial Drive NW",
         "title": "Utilistories - Hillhurst/Sunnyside 7"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.0839225, 51.0539047] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0839225, 51.0539047] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
-        "type": "Feature",
-        "properties": {
+      "type": "Feature",
+      "properties": {
         "short_desc": "Utility box art",
         "address": "273 10 St NW",
         "title": "Utilistories - Hillhurst/Sunnyside 8"
-        },
-        "geometry": { "type": "Point", "coordinates": [-114.088679, 51.05403] }
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.088679, 51.05403] }
     },
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "407 10 St NW",
-    "title": "Utilistories - Hillhurst/Sunnyside 9"
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Utility box art",
+        "address": "407 10 St NW",
+        "title": "Utilistories - Hillhurst/Sunnyside 9"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.088775, 51.0556153] }
     },
-    "geometry": { "type": "Point", "coordinates": [-114.088775, 51.0556153] }
-},
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by Moe Dawg",
+        "address": "636 10 Ave SW, Calgary, AB T2R 1M3",
+        "title": "Mural by Moe Dawg"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.07643, 51.04415] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by BirdO",
+        "address": "502 4 St SW, Calgary, AB T2P 1S7",
+        "title": "Mural by BirdO"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0854056, 51.048813] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by Astro",
+        "address": "Parking lot, 5 St SW, Calgary, AB T2P 0Y4",
+        "title": "Mural by Astro"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.07327, 51.04619] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by RUNT",
+        "address": "101 8 Ave SW, Calgary, AB T2P 1B4",
+        "title": "Mural by RUNT"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.0634, 51.04552] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by Elena Bushan",
+        "address": "1236 12 Ave SW, Calgary, AB T3C 1A7",
+        "title": "Mother Nature"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.09059, 51.04246] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by Ankh_One",
+        "address": "10 Ave SW, Calgary, AB",
+        "title": "Mural by Ankh_One"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.07003, 51.04366] }
+    },
 
-
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by Kay Gallivan",
+        "address": "340 17 AVE SW",
+        "title": "ENTANGLEMENTS"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.07096, 51.038] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by Ola Volo",
+        "address": "610 17 Ave SW, Calgary, AB T2S 0B4",
+        "title": "Mural by Ola Volo"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.07513, 51.03818] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "short_desc": "Mural by DALeast",
+        "address": "Beltline, Calgary, AB T2R 0S3",
+        "title": "Mural by DALeast"
+      },
+      "geometry": { "type": "Point", "coordinates": [-114.08294, 51.03938] }
+    }
+  ]
+}
