@@ -10,33 +10,24 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.084076, 51.050493] }
       },
-{
-"type": "FeatureCollection",
-"features": [
+      {
+        "type": "Feature",
+        "properties": {
+            "short_desc": "Interactive sculpture by Living Lenses",
+            "address": "950 McPherson Square Northeast",
+            "title": "Wishing Well"
+        },
+        "geometry": { "type": "Point", "coordinates": [-114.0415853, 51.0508778] }
+    },
     {
-    "type": "Feature",
-    "properties": {
-        "short_desc": "Interactive sculpture by Living Lenses",
-        "address": "950 McPherson Square Northeast",
-        "title": "Wishing Well"
-    },
-    "geometry": { "type": "Point", "coordinates": [-114.0415853, 51.0508778] }
-    },
-{
-"type": "FeatureCollection",
-"features": [
-    {
-    "type": "Feature",
-    "properties": {
-        "short_desc": "A few of Calgary's cow sculptures that once stood all around Calgary",
-        "address": "608 9 Ave SW",
-        "title": "Udderly Art Pasture"
-    },
-    "geometry": { "type": "Point", "coordinates": [-114.0774531, 51.0451115] }
-    },
-{
-"type": "FeatureCollection",
-"features": [
+        "type": "Feature",
+        "properties": {
+            "short_desc": "A few of Calgary's cow sculptures that once stood all around Calgary",
+            "address": "608 9 Ave SW",
+            "title": "Udderly Art Pasture"
+        },
+        "geometry": { "type": "Point", "coordinates": [-114.0774531, 51.0451115] }
+        },
     {
     "type": "Feature",
     "properties": {
@@ -46,9 +37,7 @@
     },
     "geometry": { "type": "Point", "coordinates": [-113.9648543, 51.0881609] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
+    
     {
         "type": "Feature",
         "properties": {
@@ -58,69 +47,51 @@
         },
         "geometry": { "type": "Point", "coordinates": [-113.9648543, 51.0914429] }
     },
-{
-"type": "FeatureCollection",
-"features": [
-{
+    {
     "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "N/B 52nd street & Whitehorn Dr NE",
-    "title": "Portraits of Whitehorn 3"
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": "N/B 52nd street & Whitehorn Dr NE",
+        "title": "Portraits of Whitehorn 3"
+        },
+        "geometry": { "type": "Point", "coordinates": [-113.9609121, 51.0859054] }
     },
-    "geometry": { "type": "Point", "coordinates": [-113.9609121, 51.0859054] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": " Memorial Dr and Marlborough Way SE",
-    "title": "Untitled - Marlborough 1"
+    {
+        "type": "Feature",
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": " Memorial Dr and Marlborough Way SE",
+        "title": "Untitled - Marlborough 1"
     },
     "geometry": { "type": "Point", "coordinates": [-113.9795079, 51.0524892] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "Marlborough Way and Marlborough Dr SE",
-    "title": "Cycle of the Seasons"
     },
-    "geometry": { "type": "Point", "coordinates": [113.9751023, 51.0883269] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "Untitled - Marlborough 2",
-    "title": "Memorial Dr and 44 St SE"
+    {
+        "type": "Feature",
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": "Marlborough Way and Marlborough Dr SE",
+        "title": "Cycle of the Seasons"
+        },
+        "geometry": { "type": "Point", "coordinates": [113.9751023, 51.0883269] }
     },
-    "geometry": { "type": "Point", "coordinates": [-113.9725856, -113.9725856] }
-},
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "36 St and Radcliffe Dr SE",
-    "title": "Untitled - Marlborough 3"
+    {   
+        "type": "Feature",
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": "Untitled - Marlborough 2",
+        "title": "Memorial Dr and 44 St SE"
+        },
+        "geometry": { "type": "Point", "coordinates": [-113.9725856, -113.9725856] }
     },
-    "geometry": { "type": "Point", "coordinates": [-113.9843023, 51.048143] }
-},
-{
-    "type": "FeatureCollection",
-    "features": [
+    {   
+        "type": "Feature",
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": "36 St and Radcliffe Dr SE",
+        "title": "Untitled - Marlborough 3"
+        },
+        "geometry": { "type": "Point", "coordinates": [-113.9843023, 51.048143] }
+    },
     {
         "type": "Feature",
         "properties": {
@@ -130,9 +101,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.0658808, 51.0371942] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -143,20 +111,14 @@
         "geometry": { "type": "Point", "coordinates": [-113.9839843, 51.0367263] }
     },
     {
-        "type": "FeatureCollection",
-        "features": [
-        {
-            "type": "Feature",
-            "properties": {
-            "short_desc": "Utility box art",
-            "address": "44 St and 14 Ave SE",
-            "title": "Untitled - Marlborough 5"
-            },
-            "geometry": { "type": "Point", "coordinates": [-113.9726097, 51.0409506] }
+        "type": "Feature",
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": "44 St and 14 Ave SE",
+        "title": "Untitled - Marlborough 5"
         },
-{
-    "type": "FeatureCollection",
-    "features": [
+        "geometry": { "type": "Point", "coordinates": [-113.9726097, 51.0409506] }
+    },
     {
         "type": "Feature",
         "properties": {
@@ -166,21 +128,15 @@
         },
         "geometry": { "type": "Point", "coordinates": [-113.9584796, 51.0600637] }
     },
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "Marbank Dr and 52 St SE",
-    "title": "Untitled - Marlborough 7"
+    {
+        "type": "Feature",
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": "Marbank Dr and 52 St SE",
+        "title": "Untitled - Marlborough 7"
+        },
+        "geometry": { "type": "Point", "coordinates": [-113.9585344, 51.0622605] }
     },
-    "geometry": { "type": "Point", "coordinates": [-113.9585344, 51.0622605] }
-},
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -190,9 +146,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-113.9842009, 51.0424771] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -202,9 +155,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -214,9 +164,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -226,9 +173,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.088909, 51.0568599] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -238,9 +182,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.0942326, 51.052539] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -250,9 +191,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.0895929, 51.0526235] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -262,9 +200,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.1262501, 51.142538] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -274,9 +209,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.0879971, 51.0519905] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -286,9 +218,6 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.0839225, 51.0539047] }
     },
-{
-    "type": "FeatureCollection",
-    "features": [
     {
         "type": "Feature",
         "properties": {
@@ -298,17 +227,14 @@
         },
         "geometry": { "type": "Point", "coordinates": [-114.088679, 51.05403] }
     },
-{
-"type": "FeatureCollection",
-"features": [
-{
-    "type": "Feature",
-    "properties": {
-    "short_desc": "Utility box art",
-    "address": "407 10 St NW",
-    "title": "Utilistories - Hillhurst/Sunnyside 9"
+    {  
+        "type": "Feature",
+        "properties": {
+        "short_desc": "Utility box art",
+        "address": "407 10 St NW",
+        "title": "Utilistories - Hillhurst/Sunnyside 9"
+        },
+        "geometry": { "type": "Point", "coordinates": [-114.088775, 51.0556153] }
     },
-    "geometry": { "type": "Point", "coordinates": [-114.088775, 51.0556153] }
-},
 
 
