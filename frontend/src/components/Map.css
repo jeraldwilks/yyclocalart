@@ -1,6 +1,12 @@
+.fullpage {
+  margin-top: 50px;
+}
+
 .map-container {
-  height: 700px;
-  width: 900px;
+  height: 75vh;
+  width: "100%";
+  position: relative;
+  margin-left: 50px;
 }
 
 .sidebar {
@@ -14,4 +20,4 @@
   left: 0;
   margin: 12px;
   border-radius: 4px;
-  }
+}

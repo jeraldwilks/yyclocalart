@@ -1,5 +1,4 @@
 import express from "express";
-// import { model } from
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -9,15 +8,21 @@ const calgaryURL =
 
 export const geojsonRouter = express.Router();
 
+let geoJSON = null;
+
 geojsonRouter.get("/", async (req, res) => {
   try {
-    console.log("test...");
-    let geoJSON = await fetch(calgaryURL).then(function (response) {
-      return response.json();
-    });
+    if (geoJSON == null) {
+      geoJSON = await fetch(calgaryURL).then(function (response) {
+        return response.json();
+      });
+    }
     res.send(geoJSON);
   } catch (error) {
     console.log(error.message);
     res.status(500).send(error);
   }
 });
+
+// Empty saved geoJSON once per hour
+setInterval(() => (geoJSON = null), 3600000);

@@ -30,6 +30,22 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  position: relative;
+  isolation: isolate; 
+
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.3;
+
+  background-image: url("./images/IMG_9817.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 h1 {
@@ -56,13 +72,45 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.home {
+  font-family: monospace, Arial, Helvetica, sans-serif;
+  color: rgb(53, 4, 70);
+}
+
+.home::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 1;
+
+  background-image: url("./images/IMG_9817.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #f9f9f9;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #f9f9f9;
   }
   button {
     background-color: #f9f9f9;
