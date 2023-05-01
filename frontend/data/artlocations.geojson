@@ -239,63 +239,57 @@
       },
       "geometry": { "type": "Point", "coordinates": [-114.088775, 51.0556153] }
     },
-
     {
       "type": "Feature",
       "properties": {
         "short_desc": "Mural by Moe Dawg",
         "address": "636 10 Ave SW, Calgary, AB T2R 1M3",
-        "title": "Title"
+        "title": "Mural by Moe Dawg"
       },
       "geometry": { "type": "Point", "coordinates": [-114.07643, 51.04415] }
     },
-
     {
       "type": "Feature",
       "properties": {
-        "short_desc": "Mural by BirdO ",
+        "short_desc": "Mural by BirdO",
         "address": "502 4 St SW, Calgary, AB T2P 1S7",
-        "title": "Title"
+        "title": "Mural by BirdO"
       },
       "geometry": { "type": "Point", "coordinates": [-114.0854056, 51.048813] }
     },
-
     {
       "type": "Feature",
       "properties": {
         "short_desc": "Mural by Astro",
         "address": "Parking lot, 5 St SW, Calgary, AB T2P 0Y4",
-        "title": "Title"
+        "title": "Mural by Astro"
       },
       "geometry": { "type": "Point", "coordinates": [-114.07327, 51.04619] }
     },
-
     {
       "type": "Feature",
       "properties": {
         "short_desc": "Mural by RUNT",
         "address": "101 8 Ave SW, Calgary, AB T2P 1B4",
-        "title": "Title"
+        "title": "Mural by RUNT"
       },
       "geometry": { "type": "Point", "coordinates": [-114.0634, 51.04552] }
     },
-
     {
       "type": "Feature",
       "properties": {
         "short_desc": "Mural by Elena Bushan",
         "address": "1236 12 Ave SW, Calgary, AB T3C 1A7",
-        "title": "Title"
+        "title": "Mother Nature"
       },
       "geometry": { "type": "Point", "coordinates": [-114.09059, 51.04246] }
     },
-
     {
       "type": "Feature",
       "properties": {
-        "short_desc": "Mural by Ankh_One ",
+        "short_desc": "Mural by Ankh_One",
         "address": "10 Ave SW, Calgary, AB",
-        "title": "Title"
+        "title": "Mural by Ankh_One"
       },
       "geometry": { "type": "Point", "coordinates": [-114.07003, 51.04366] }
     },
@@ -303,29 +297,27 @@
     {
       "type": "Feature",
       "properties": {
-        "short_desc": "Mural by ",
-        "address": "Beltline, Calgary, AB T2S 0A8",
-        "title": "Title"
+        "short_desc": "Mural by Kay Gallivan",
+        "address": "340 17 AVE SW",
+        "title": "ENTANGLEMENTS"
       },
       "geometry": { "type": "Point", "coordinates": [-114.07096, 51.038] }
     },
-
     {
       "type": "Feature",
       "properties": {
         "short_desc": "Mural by Ola Volo",
         "address": "610 17 Ave SW, Calgary, AB T2S 0B4",
-        "title": "Title"
+        "title": "Mural by Ola Volo"
       },
       "geometry": { "type": "Point", "coordinates": [-114.07513, 51.03818] }
     },
-
     {
       "type": "Feature",
       "properties": {
         "short_desc": "Mural by DALeast",
         "address": "Beltline, Calgary, AB T2R 0S3",
-        "title": "Title"
+        "title": "Mural by DALeast"
       },
       "geometry": { "type": "Point", "coordinates": [-114.08294, 51.03938] }
     }
