@@ -10,28 +10,22 @@ mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 const TourMap = () => {
   const mapContainer = useRef(null);
   const map = useRef(null);
+  const { tourLocations, setTourLocations } = useContext(TourContext);
   const [lng, setLng] = useState(-114.0571411);
   const [lat, setLat] = useState(51.0453775);
   const [zoom, setZoom] = useState(13);
-  const { tourLocations, setTourLocations } = useContext(TourContext);
   const myGeojson = convertToGeojson(tourLocations);
   const routesURL = getRouteURL(tourLocations);
-  const [routeData, setRouteData] = useState();
-  // let routeGeojson;
 
-  // const getRouteGeojson = async () => (routeGeojson = await fetch(getRouteURL));
-
-  // getRouteGeojson();
-  // console.log(routeGeojson);
+  let routeData;
+  const getRouteData = async () => {
+    const response = await fetch(routesURL);
+    const data = await response.json();
+    routeData = data;
+  };
 
   useEffect(() => {
-    const getRouteData = async () => {
-      const response = await fetch(routesURL);
-      const data = await response.json();
-      setRouteData(data);
-    };
     getRouteData();
-
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -55,8 +49,8 @@ const TourMap = () => {
     map.current.on("load", () => {
       map.current.addSource("route", {
         type: "geojson",
-        // data: routeGeojson,
-        data: routesURL,
+        data: routeData,
+        // data: routesURL,
       });
       map.current.addSource("art", {
         type: "geojson",
@@ -173,7 +167,7 @@ const TourMap = () => {
         {tourLocations.length === 0 && <p>No locations added.</p>}
         <List>
           {tourLocations.map((location) => (
-            <ListItem>
+            <ListItem key={location.properties.title}>
               <ListItemText
                 primary={location.properties.title}
                 secondary={location.properties.address}

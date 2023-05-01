@@ -140,7 +140,7 @@ const Map = () => {
           {tourLocations.length === 0 && <p>No locations added.</p>}
           <List>
             {tourLocations.map((location) => (
-              <ListItem>
+              <ListItem key={location.properties.title}>
                 <ListItemText primary={location.properties.title} />
                 <button onClick={() => removeLocation(location)}>Remove</button>
               </ListItem>
@@ -153,7 +153,13 @@ const Map = () => {
           )}
         </Grid>
       </Grid>
-      <a className="iconcredit" href="https://www.flaticon.com/free-icons/paint" title="paint icons">Paint icons created by Freepik - Flaticon</a>
+      <a
+        className="iconcredit"
+        href="https://www.flaticon.com/free-icons/paint"
+        title="paint icons"
+      >
+        Paint icons created by Freepik - Flaticon
+      </a>
     </div>
   );
 };
