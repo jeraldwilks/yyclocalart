@@ -16,44 +16,42 @@ const TourMap = () => {
   const [zoom, setZoom] = useState(13);
   const myGeojson = convertToGeojson(tourLocations);
   const routesURL = getRouteURL(tourLocations);
-  console.log(tourLocations);
+  const [routeDataState, setRouteDataState] = useState();
 
-  let routeData;
-  const getRouteData = async () => {
-    const response = await fetch(routesURL);
-    const data = await response.json();
-    routeData = data;
-    console.log("Inside getRouteData");
-  };
+  let routeData = null;
 
   useEffect(() => {
-    getRouteData();
-    console.log(routeData);
-    if (map.current) return; // initialize map only once
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: "mapbox://styles/mapbox/outdoors-v12",
-      center: [lng, lat],
-      zoom: zoom,
-    })
-      .addControl(
-        new mapboxgl.GeolocateControl({
-          positionOptions: {
-            enableHighAccuracy: true,
-          },
-          // When active the map will receive updates to the device's location as it changes.
-          trackUserLocation: true,
-          // Draw an arrow next to the location dot to indicate which direction the device is heading.
-          showUserHeading: true,
-          showUserLocation: true,
-        })
-      )
-      .addControl(new mapboxgl.NavigationControl());
-    map.current.on("load", () => {
+    const getRouteData = async () => {
+      if (map.current) return; // initialize map only once
+      map.current = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: "mapbox://styles/mapbox/outdoors-v12",
+        center: [lng, lat],
+        zoom: zoom,
+      })
+        .addControl(
+          new mapboxgl.GeolocateControl({
+            positionOptions: {
+              enableHighAccuracy: true,
+            },
+            // When active the map will receive updates to the device's location as it changes.
+            trackUserLocation: true,
+            // Draw an arrow next to the location dot to indicate which direction the device is heading.
+            showUserHeading: true,
+            showUserLocation: true,
+          })
+        )
+        .addControl(new mapboxgl.NavigationControl());
+      const response = await fetch(routesURL);
+      const data = await response.json();
+
+      routeData = data;
+      setRouteDataState(routeData);
+
+      let routeGeoJSON = convertToGeoJSON(routeData);
       map.current.addSource("route", {
         type: "geojson",
-        data: routeData,
-        // data: routesURL,
+        data: routeGeoJSON,
       });
       map.current.addSource("art", {
         type: "geojson",
@@ -122,42 +120,45 @@ const TourMap = () => {
           "text-anchor": "top",
         },
       });
-    });
-    map.current.on("click", "art", (e) => {
-      // Copy coordinates array.
-      const coordinates = e.features[0].geometry.coordinates.slice();
-      const description = e.features[0].properties.short_desc;
-      const title = e.features[0].properties.title;
-      const address = e.features[0].properties.address;
-      // Ensure that if the map is zoomed out such that multiple
-      // copies of the feature are visible, the popup appears
-      // // over the copy being pointed to.
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      }
-      new mapboxgl.Popup()
-        .setLngLat(coordinates)
-        .setHTML(
-          "<h2>" +
-            title +
-            "</h2><h3>" +
-            address +
-            "</h3><p>" +
-            description +
-            "</p>"
-        )
-        .addTo(map.current);
-    });
+      // });
 
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.current.on("mouseenter", "art", () => {
-      map.current.getCanvas().style.cursor = "pointer";
-    });
+      map.current.on("click", "art", (e) => {
+        // Copy coordinates array.
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const description = e.features[0].properties.short_desc;
+        const title = e.features[0].properties.title;
+        const address = e.features[0].properties.address;
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+        new mapboxgl.Popup()
+          .setLngLat(coordinates)
+          .setHTML(
+            "<h2>" +
+              title +
+              "</h2><h3>" +
+              address +
+              "</h3><p>" +
+              description +
+              "</p>"
+          )
+          .addTo(map.current);
+      });
 
-    // Change it back to a pointer when it leaves.
-    map.current.on("mouseleave", "art", () => {
-      map.current.getCanvas().style.cursor = "";
-    });
+      // Change the cursor to a pointer when the mouse is over the places layer.
+      map.current.on("mouseenter", "art", () => {
+        map.current.getCanvas().style.cursor = "pointer";
+      });
+
+      // Change it back to a pointer when it leaves.
+      map.current.on("mouseleave", "art", () => {
+        map.current.getCanvas().style.cursor = "";
+      });
+    };
+    getRouteData();
   });
 
   return (
@@ -177,6 +178,12 @@ const TourMap = () => {
               />
             </ListItem>
           ))}
+          {routeDataState != null && (
+            <p>
+              Walking Time: {Math.floor(routeDataState.routes[0].duration / 60)}{" "}
+              minutes
+            </p>
+          )}
         </List>
       </Grid>
     </Grid>
@@ -208,4 +215,18 @@ const getRouteURL = (tourLocations) => {
     }
   }
   return coordString;
+};
+
+const convertToGeoJSON = (routejson) => {
+  const data = routejson.routes[0];
+  const route = data.geometry.coordinates;
+  const geojson = {
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "LineString",
+      coordinates: route,
+    },
+  };
+  return geojson;
 };
