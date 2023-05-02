@@ -18,6 +18,9 @@ const theme = createTheme({
       main: "#f50057",
     },
   },
+  typography: {
+    fontFamily: "monospace",
+  }
 });
 
 function App() {
