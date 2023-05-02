@@ -192,6 +192,10 @@ const TourMap = () => {
                 )}
               </>
             ))}
+            <p>
+              Walking Time: {Math.floor(routeDataState.routes[0].duration / 60)}{" "}
+              minutes
+            </p>
           </List>
         ) : (
           <p>Loading...</p>
