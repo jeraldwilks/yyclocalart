@@ -5,7 +5,7 @@ function Footer() {
     return (
     <footer>
         <p>Copyright © {currentYear} J3K</p>
-        <i>Photo by Jessica Theroux</i>
+        <i>Feature photo by Jessica Theroux</i>
         </footer>
     );
 };
