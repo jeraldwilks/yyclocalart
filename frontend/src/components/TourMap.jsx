@@ -186,7 +186,9 @@ const TourMap = () => {
                     {routeDataState.routes[0].legs[
                       tourLocations.indexOf(location)
                     ].steps.map((step) => (
-                      <li>{step.maneuver.instruction}</li>
+                      <li key={step.maneuver.location}>
+                        {step.maneuver.instruction}
+                      </li>
                     ))}
                   </ol>
                 )}
