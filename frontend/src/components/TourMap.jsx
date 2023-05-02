@@ -169,7 +169,7 @@ const TourMap = () => {
       <Grid item xs={4}>
         <h2>Walking Tour:</h2>
         {tourLocations.length != 0 && routeDataState != null ? (
-          <List overflow={"auto"}>
+          <List>
             {tourLocations.map((location) => (
               <>
                 <ListItem key={location.properties.title}>
