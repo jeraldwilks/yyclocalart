@@ -167,7 +167,11 @@ const TourMap = () => {
       <Grid item xs={8}>
         <div ref={mapContainer} className="map-container" />
       </Grid>
-      <Grid item xs={4}>
+      <Grid
+        item
+        xs={4}
+        style={{ maxHeight: "75vh", overflow: "auto", position: "relative" }}
+      >
         <h2>Walking Tour:</h2>
         {tourLocations.length != 0 && routeDataState != null ? (
           <List>
@@ -179,7 +183,6 @@ const TourMap = () => {
                     secondary={location.properties.address}
                   />
                 </ListItem>
-                {}
                 {routeDataState.routes[0].legs[
                   tourLocations.indexOf(location)
                 ] != undefined && (
