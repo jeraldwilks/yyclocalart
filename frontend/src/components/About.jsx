@@ -8,17 +8,17 @@ function createCard(teamMember) {
     <AboutCard
     key={teamMember.id}
     name={teamMember.name}
-    email={teamMember.email}
     image={teamMember.image}
+    email= {<a href="mailto:{teamMember.email}">{teamMember.email}</a>}
     />
-  );
-}
-
-function AboutApp() {
-console.log(teamMembers);
-
-return (
-  <Grid container spacing={1} justifyContent="center" marginLeft={1}>
+    );
+  }
+  
+  function AboutApp() {
+    console.log(teamMembers);
+    
+    return (
+      <Grid container spacing={1} justifyContent="center" marginLeft={1}>
   
 {teamMembers.map((person) => (
   <Grid item xs={12} sm={6} md={3}
