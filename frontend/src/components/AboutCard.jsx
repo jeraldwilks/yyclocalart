@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 export default function MediaCard(props) {
   return (
     <Card sx={{ 
-      maxWidth: 300,
+      maxWidth: 315,
       marginTop: 5,
       backgroundColor: "#F4F2F2"      
       }}>
@@ -21,7 +21,7 @@ export default function MediaCard(props) {
         title="team member image"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h6" font Size={20} component="div">
         {props.name}
         </Typography>
         <Typography variant="body2" color="text.secondary" fontSize={18}>
