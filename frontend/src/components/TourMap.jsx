@@ -168,24 +168,41 @@ const TourMap = () => {
         <div ref={mapContainer} className="map-container" />
       </Grid>
       <Grid item xs={4}>
-        <h2>Tour Stops:</h2>
-        {tourLocations.length === 0 && <p>No locations added.</p>}
-        <List>
-          {tourLocations.map((location) => (
-            <ListItem key={location.properties.title}>
-              <ListItemText
-                primary={location.properties.title}
-                secondary={location.properties.address}
-              />
-            </ListItem>
-          ))}
-          {routeDataState != null && (
+        <h2>Walking Tour:</h2>
+        {tourLocations.length != 0 && routeDataState != null ? (
+          <List>
+            {tourLocations.map((location) => (
+              <>
+                <ListItem key={location.properties.title}>
+                  <ListItemText
+                    primary={location.properties.title}
+                    secondary={location.properties.address}
+                  />
+                </ListItem>
+                {}
+                {routeDataState.routes[0].legs[
+                  tourLocations.indexOf(location)
+                ] != undefined && (
+                  <ol>
+                    {routeDataState.routes[0].legs[
+                      tourLocations.indexOf(location)
+                    ].steps.map((step) => (
+                      <li key={step.maneuver.location}>
+                        {step.maneuver.instruction}
+                      </li>
+                    ))}
+                  </ol>
+                )}
+              </>
+            ))}
             <p>
               Walking Time: {Math.floor(routeDataState.routes[0].duration / 60)}{" "}
               minutes
             </p>
-          )}
-        </List>
+          </List>
+        ) : (
+          <p>Loading...</p>
+        )}
       </Grid>
     </Grid>
   );
