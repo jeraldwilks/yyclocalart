@@ -170,11 +170,15 @@ const TourMap = () => {
       <Grid
         item
         xs={4}
-        style={{ maxHeight: "75vh", overflow: "auto", position: "relative" }}
+        className="tourDirectionsItem" 
       >
         <h2>Walking Tour:</h2>
         {tourLocations.length != 0 && routeDataState != null ? (
           <List>
+             <p>
+              Walking Time: {Math.floor(routeDataState.routes[0].duration / 60)}{" "}
+              minutes
+            </p>
             {tourLocations.map((location) => (
               <>
                 <ListItem key={location.properties.title}>
@@ -198,10 +202,6 @@ const TourMap = () => {
                 )}
               </>
             ))}
-            <p>
-              Walking Time: {Math.floor(routeDataState.routes[0].duration / 60)}{" "}
-              minutes
-            </p>
           </List>
         ) : (
           <p>Loading...</p>

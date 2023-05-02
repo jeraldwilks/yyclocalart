@@ -2,6 +2,31 @@
   margin-top: 50px;
 }
 
+.tourDirectionsItem {
+  max-height: 75vh;
+  overflow: auto;
+  position: relative;
+  color: black;
+  font-family: monospace, Courier New, Courier; 
+  font-weight: ;
+  /* Verdana, Geneva, Tahoma, sans-serif */
+}
+
+h2 {
+  font-family: monospace, Courier New, Courier; 
+}
+
+h3 {
+  font-family: monospace, Courier New, Courier; 
+}
+button {
+  font-family: monospace, Courier New, Courier; 
+}
+
+p { 
+  font-family: monospace, Courier New, Courier; 
+}
+
 .map-container {
   height: 75vh;
   width: "100%";

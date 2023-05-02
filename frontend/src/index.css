@@ -34,12 +34,18 @@ body {
 
 }
 
+footer {
+  color:black;
+  font-family: monospace;
+  font-size: 10px;
+}
+
 body::after {
   content: '';
   position: absolute;
   z-index: -1;
   inset: 0;
-  opacity: 0.3;
+  opacity: 0.1;
 
   background-image: url("./images/IMG_9817.jpeg");
   background-repeat: no-repeat;
