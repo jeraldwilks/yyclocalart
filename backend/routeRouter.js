@@ -12,6 +12,7 @@ routeRouter.get("/:coordString", async (req, res) => {
       return response.json();
     });
     // let routeGeoJSON = convertToGeoJSON(routeJSON);
+    console.log(routeJSON.routes[0].legs[0].steps);
     res.send(routeJSON);
   } catch (error) {
     console.log(error.message);
