@@ -161,7 +161,7 @@ const Map = () => {
             <>
               <h3>{selectedLocation.properties.title}</h3>
               <p>{selectedLocation.properties.address}</p>
-              {selectedLocation.properties.short_desc}
+              <p>{selectedLocation.properties.short_desc}</p>
               <p>
                 {tourLocations.length <= 25 && (
                   <button onClick={addToTour}>Add to Tour</button>

@@ -79,6 +79,10 @@ button:focus-visible {
   color: rgb(53, 4, 70);
 }
 
+h2.home {
+  text-align: center;
+}
+
 .home::after {
   content: '';
   position: absolute;

@@ -7,24 +7,26 @@
   overflow: auto;
   position: relative;
   color: black;
-  font-family: monospace, Courier New, Courier; 
-  font-weight: ;
-  /* Verdana, Geneva, Tahoma, sans-serif */
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
 }
 
 h2 {
-  font-family: monospace, Courier New, Courier; 
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
 }
 
 h3 {
-  font-family: monospace, Courier New, Courier; 
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
 }
 button {
-  font-family: monospace, Courier New, Courier; 
+  font-family: monospace, Courier New, Courier;
 }
 
-p { 
-  font-family: monospace, Courier New, Courier; 
+p {
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
 }
 
 .map-container {
