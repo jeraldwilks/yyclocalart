@@ -9,7 +9,7 @@ function createCard(teamMember) {
     key={teamMember.id}
     name={teamMember.name}
     image={teamMember.image}
-    email= {<a href="mailto:{teamMember.email}">{teamMember.email}</a>}
+    email= {<a href={`mailto: ${teamMember.email}`}>{teamMember.email}</a>}
     />
     );
   }
