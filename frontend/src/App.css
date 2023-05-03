@@ -63,5 +63,7 @@ font-size: 14px;
 }
 
 .iconcredit {
-  font-size: 10px;
+  font-size: 8px;
+  font-family: monospace;
+  color: black;
 }

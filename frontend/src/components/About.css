@@ -1,0 +1,25 @@
+.low-opacity-bg-image {
+    --bg-image: url("./images/IMG_9817.jpeg");
+    --bg-image-opacity: 0.3;
+    
+      margin: 0;
+      display: flex;
+      place-items: center;
+      min-width: 320px;
+      min-height: 100vh;
+      position: relative;
+      isolation: isolate; 
+    }
+    
+    .low-opacity-bg-image::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: var(--bg-image-opacity);
+    
+      background-image: var(--bg-image);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }

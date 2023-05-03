@@ -61,7 +61,7 @@ function ResponsiveAppBar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -70,7 +70,7 @@ function ResponsiveAppBar() {
               color="inherit"
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -115,7 +115,7 @@ function ResponsiveAppBar() {
           >
             YYC Local Art
           </Typography>
-          <Box sx={{ ml: 3, flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ ml: 3, flexGrow: 1, display: { xs: "flex", md: "flex" } }}>
             {pages.map((page, index) => (
               <Link to={routes[index]} key={page}>
                 <Button

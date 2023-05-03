@@ -2,6 +2,34 @@
   margin-top: 50px;
 }
 
+.tourDirectionsItem {
+  max-height: 75vh;
+  overflow: auto;
+  position: relative;
+  color: black;
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
+}
+
+h2 {
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
+}
+
+h3 {
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
+}
+button {
+  font-family: monospace, Courier New, Courier;
+  border: 2px solid black;
+}
+
+p {
+  font-family: monospace, Courier New, Courier;
+  text-align: justify;
+}
+
 .map-container {
   height: 75vh;
   width: "100%";

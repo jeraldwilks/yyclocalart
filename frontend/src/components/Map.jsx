@@ -154,14 +154,14 @@ const Map = () => {
         <Grid item xs={8}>
           <div ref={mapContainer} className="map-container" />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={4} className="tourDirectionsItem">
           <h2>Selected Location:</h2>
           {selectedLocation == null && <p>No location selected</p>}
           {selectedLocation != null && (
             <>
               <h3>{selectedLocation.properties.title}</h3>
               <p>{selectedLocation.properties.address}</p>
-              {selectedLocation.properties.short_desc}
+              <p>{selectedLocation.properties.short_desc}</p>
               <p>
                 {tourLocations.length <= 25 && (
                   <button onClick={addToTour}>Add to Tour</button>
