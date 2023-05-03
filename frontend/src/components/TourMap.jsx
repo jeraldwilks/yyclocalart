@@ -5,10 +5,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { TourContext } from "../../context/TourContext";
 import { Grid, List, ListItem, ListItemText } from "@mui/material";
 
-mapboxgl.accessToken =
-  import.meta.env.VITE_ENVIRONMENT == "dev"
-    ? import.meta.env.VITE_MAP_TOKEN
-    : process.env.MAP_TOKEN;
+mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
 const TourMap = () => {
   const mapContainer = useRef(null);
