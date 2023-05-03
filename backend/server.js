@@ -15,5 +15,5 @@ app.use(express.static("../frontend/dist"));
 app.use("/api/geojson", geojsonRouter);
 app.use("/api/route", routeRouter);
 app.get("*", (req, res) =>
-  res.sendFile(path.join * path.resolve(), "frontend/dist/index.html")
+  res.sendFile(path.join(path.resolve(), "frontend/dist/index.html"))
 );
