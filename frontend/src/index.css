@@ -77,11 +77,12 @@ button:focus-visible {
 .home {
   font-family: monospace, Arial, Helvetica, sans-serif;
   color: rgb(53, 4, 70);
-}
-
-h2.home {
   text-align: center;
 }
+
+/* h2.home {
+  text-align: center;
+} */
 
 .home::after {
   content: '';
