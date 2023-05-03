@@ -8,7 +8,8 @@
     "installBackend": "cd backend && npm i",
     "install": "npm run installFrontend && npm run installBackend",
     "build": "cd frontend && npm run build",
-    "start": "node backend/server.js"
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
   },
   "repository": {
     "type": "git",

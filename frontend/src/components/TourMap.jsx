@@ -177,8 +177,8 @@ const TourMap = () => {
               minutes
             </p>
             {tourLocations.map((location) => (
-              <>
-                <ListItem key={location.properties.title}>
+              <React.Fragment key={location.properties.title}>
+                <ListItem>
                   <ListItemText
                     primary={location.properties.title}
                     secondary={location.properties.address}
@@ -197,7 +197,7 @@ const TourMap = () => {
                     ))}
                   </ol>
                 )}
-              </>
+              </React.Fragment>
             ))}
           </List>
         ) : (
