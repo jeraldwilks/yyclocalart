@@ -3,18 +3,19 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from '@mui/material/CardMedia';
+import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-
 export default function MediaCard(props) {
   return (
-    <Card sx={{ 
-      maxWidth: 315,
-      marginTop: 5,
-      backgroundColor: "#F4F2F2"      
-      }}>
+    <Card
+      sx={{
+        maxWidth: 315,
+        marginTop: 5,
+        backgroundColor: "#F4F2F2",
+      }}
+    >
       <CardMedia
         sx={{ height: 350 }}
         image={props.image}
@@ -22,10 +23,15 @@ export default function MediaCard(props) {
       />
       <CardContent>
         <Typography gutterBottom variant="h6" font Size={20} component="div">
-        {props.name}
+          {props.name}
         </Typography>
-        <Typography variant="body2" color="text.secondary" fontSize={18}>
-        {props.email}
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          fontSize={18}
+          textAlign="center"
+        >
+          {props.email}
         </Typography>
       </CardContent>
       {/* <CardActions>
