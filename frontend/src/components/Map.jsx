@@ -154,7 +154,7 @@ const Map = () => {
         <Grid item xs={8}>
           <div ref={mapContainer} className="map-container" />
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={4} className="tourDirectionsItem">
           <h2>Selected Location:</h2>
           {selectedLocation == null && <p>No location selected</p>}
           {selectedLocation != null && (
