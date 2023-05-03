@@ -57,7 +57,7 @@ const Map = () => {
       });
       map.current.addSource("art2", {
         type: "geojson",
-        data: "../../data/artlocations.geojson",
+        data: "/data/artlocations.geojson",
       });
       map.current.loadImage("icon.png", (error, image) => {
         if (error) throw error;
