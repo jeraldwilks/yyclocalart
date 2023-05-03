@@ -1,0 +1,23 @@
+{
+  "name": "yyclocalart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "installFrontend": "cd frontend && npm i && cd ..",
+    "installBackend": "cd backend && npm i",
+    "install": "npm run installFrontend && npm run installBackend",
+    "build": "cd frontend && npm run build",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeraldwilks/yyclocalart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeraldwilks/yyclocalart/issues"
+  },
+  "homepage": "https://github.com/jeraldwilks/yyclocalart#readme"
+}
