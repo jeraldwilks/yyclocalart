@@ -24,7 +24,7 @@ a:hover {
 }
 
 .low-opacity-bg-image {
-  --bg-image: url("./images/IMG_9817.jpeg");
+  --bg-image: url("/images/IMG_9817.jpeg");
   --bg-image-opacity: 0.1;
 
   margin: 0;
