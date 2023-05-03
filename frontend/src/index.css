@@ -40,6 +40,11 @@ footer {
   color:black;
   font-family: monospace;
   font-size: 10px;
+  text-align: center;
+}
+
+#footer {
+  text-align: center;
 }
 
 .low-opacity-bg-image::after {
@@ -80,10 +85,6 @@ button:focus-visible {
   text-align: center;
 }
 
-/* h2.home {
-  text-align: center;
-} */
-
 .home::after {
   content: '';
   position: absolute;
@@ -96,7 +97,6 @@ button:focus-visible {
   background-size: cover;
   background-position: center;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {

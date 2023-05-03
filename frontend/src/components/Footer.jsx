@@ -4,9 +4,9 @@ function Footer() {
     const currentYear = new Date().getFullYear();
     return (
     <footer>
-        <p>Copyright © {currentYear} J3K</p>
+        <p id="footer">Copyright © {currentYear} J3K</p>
         <i>Feature photo by Jessica Theroux</i>
-        </footer>
+    </footer>
     );
 };
 
