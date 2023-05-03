@@ -5,7 +5,10 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { TourContext } from "../../context/TourContext";
 import { Grid, List, ListItem, ListItemText } from "@mui/material";
 
-mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
+mapboxgl.accessToken =
+  import.meta.env.VITE_ENVIRONMENT == "dev"
+    ? import.meta.env.VITE_MAP_TOKEN
+    : process.env.MAP_TOKEN;
 
 const TourMap = () => {
   const mapContainer = useRef(null);
@@ -167,15 +170,11 @@ const TourMap = () => {
       <Grid item xs={8}>
         <div ref={mapContainer} className="map-container" />
       </Grid>
-      <Grid
-        item
-        xs={4}
-        className="tourDirectionsItem" 
-      >
+      <Grid item xs={4} className="tourDirectionsItem">
         <h2>Walking Tour:</h2>
         {tourLocations.length != 0 && routeDataState != null ? (
           <List>
-             <p>
+            <p>
               Walking Time: {Math.floor(routeDataState.routes[0].duration / 60)}{" "}
               minutes
             </p>

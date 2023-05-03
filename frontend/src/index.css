@@ -24,8 +24,8 @@ a:hover {
 }
 
 .low-opacity-bg-image {
---bg-image: url("./images/IMG_9817.jpeg");
---bg-image-opacity: 0.1;
+  --bg-image: url("./images/IMG_9817.jpeg");
+  --bg-image-opacity: 0.1;
 
   margin: 0;
   display: flex;
@@ -33,11 +33,11 @@ a:hover {
   min-width: 320px;
   min-height: 100vh;
   position: relative;
-  isolation: isolate; 
+  isolation: isolate;
 }
 
 footer {
-  color:black;
+  color: black;
   font-family: monospace;
   font-size: 10px;
   text-align: center;
@@ -48,7 +48,7 @@ footer {
 }
 
 .low-opacity-bg-image::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   inset: 0;
@@ -86,13 +86,13 @@ button:focus-visible {
 }
 
 .home::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   inset: 0;
   opacity: 1;
 
-  background-image: url("./images/IMG_9817.jpeg");
+  background-image: url("/images/IMG_9817.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
