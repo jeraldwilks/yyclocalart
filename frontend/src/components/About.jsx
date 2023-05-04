@@ -5,10 +5,10 @@ import { Grid } from "@mui/material";
 function createCard(teamMember) {
   return (
     <AboutCard
-      key={teamMember.id}
-      name={teamMember.name}
-      image={teamMember.image}
-      email={<a href={`mailto: ${teamMember.email}`}>{teamMember.email}</a>}
+    key={teamMember.id}
+    name={teamMember.name}
+    image={teamMember.image}
+    email= {<a className="card" href={`mailto: ${teamMember.email}`}>{teamMember.email}</a>}
     />
   );
 }
