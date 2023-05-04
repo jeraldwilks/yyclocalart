@@ -11,6 +11,7 @@ routeRouter.get("/:coordString", async (req, res) => {
     let routeJSON = await fetch(queryString).then(function (response) {
       return response.json();
     });
+    console.log(routeJSON);
     res.send(routeJSON);
   } catch (error) {
     console.log(error.message);
