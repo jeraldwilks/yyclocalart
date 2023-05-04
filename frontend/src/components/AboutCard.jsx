@@ -11,7 +11,7 @@ export default function MediaCard(props) {
   return (
     <Card
       sx={{
-        maxWidth: 315,
+        maxWidth: 330,
         marginTop: 5,
         backgroundColor: "#F4F2F2",
       }}
@@ -28,7 +28,7 @@ export default function MediaCard(props) {
         <Typography
           variant="body2"
           color="text.secondary"
-          fontSize={18}
+          fontSize={16}
           textAlign="center"
         >
           {props.email}
