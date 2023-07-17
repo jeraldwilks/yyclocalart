@@ -8,10 +8,7 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import { Grid, List, ListItem, ListItemText } from "@mui/material";
 
-mapboxgl.accessToken =
-  import.meta.env.VITE_ENVIRONMENT == "dev"
-    ? import.meta.env.VITE_MAP_TOKEN
-    : process.env.MAP_TOKEN;
+mapboxgl.accessToken = import.meta.env.VITE_MAP_TOKEN;
 
 const Map = () => {
   const mapContainer = useRef(null);
@@ -57,7 +54,7 @@ const Map = () => {
       });
       map.current.addSource("art2", {
         type: "geojson",
-        data: "../../data/artlocations.geojson",
+        data: "/data/artlocations.geojson",
       });
       map.current.loadImage("icon.png", (error, image) => {
         if (error) throw error;

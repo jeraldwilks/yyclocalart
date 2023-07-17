@@ -5,7 +5,7 @@ function Footer() {
     return (
     <footer>
         <p id="footer">Copyright © {currentYear} J3K</p>
-        <i>Feature photo by Jessica Theroux</i>
+        <i>Photo credit: Jessica Theroux, Mural: The River Troll by Rich, Jess, and Felix Theroux</i>
     </footer>
     );
 };
