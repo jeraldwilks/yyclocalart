@@ -7,6 +7,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import TourMap from "./components/TourMap";
 import ResponsiveAppBar from "./components/ResponsiveAppBar.jsx";
+import Images from "./components/Image_files";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
@@ -27,13 +28,14 @@ function App() {
   return (
     <div className="fullscreen">
       <ThemeProvider theme={theme}>
-        <ResponsiveAppBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/tourmap" element={<TourMap />} />
-        </Routes>
+      <ResponsiveAppBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<Map />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/tourmap" element={<TourMap />} />
+        <Route path="/images" element={<Image_files />} />
+      </Routes>
       </ThemeProvider>
       <Footer />
     </div>

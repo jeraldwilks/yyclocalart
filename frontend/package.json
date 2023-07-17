@@ -14,10 +14,18 @@
     "@mapbox/mapbox-gl-geocoder": "^5.0.1",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.1",
+    "auth": "^0.0.9",
+    "authentication": "^0.0.4",
+    "bootstrap": "^5.2.3",
+    "helpers": "^0.0.6",
     "mapbox-gl": "^2.14.1",
+    "mui": "^0.0.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
+    "react-router-dom": "^6.10.0",
+    "supabase": "^1.54.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
